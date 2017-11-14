@@ -8,8 +8,8 @@
     tools:context="swimmingpool.co.uk.jesmondswimmingpool.activity.MainActivity"
     tools:showIn="@layout/app_bar_main">
 
-    <android.support.v7.widget.ListViewCompat
-        android:id="@+id/list"
+    <android.support.v4.view.ViewPager
+        android:id="@+id/viewPager"
         app:layout_constraintBottom_toTopOf="@id/navigation"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
@@ -18,7 +18,7 @@
         android:layout_height="0dip">
 
 
-    </android.support.v7.widget.ListViewCompat>
+    </android.support.v4.view.ViewPager>
 
     <android.support.design.widget.BottomNavigationView
         android:id="@+id/navigation"

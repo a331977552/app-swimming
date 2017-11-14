@@ -1,8 +1,8 @@
 <resources>
     <string name="app_name">Jesmond Swimming Pool</string>
-    <string name="title_home">Home</string>
-    <string name="title_dashboard">Dashboard</string>
-    <string name="title_notifications">Notifications</string>
+    <string name="title_attendance">Attendance</string>
+    <string name="title_students">Dashboard</string>
+    <string name="title_operation">operation</string>
     <string name="title_activity_main">Home</string>
 
     <string name="navigation_drawer_open">Open navigation drawer</string>

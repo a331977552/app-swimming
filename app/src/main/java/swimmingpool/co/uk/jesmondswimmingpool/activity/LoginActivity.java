@@ -37,7 +37,7 @@ import swimmingpool.co.uk.jesmondswimmingpool.utils.UIUtils;
 /**
  * A login screen that offers login via email/password.
  */
-public class LoginActivity extends AppCompatActivity{
+public class LoginActivity extends BaseActivity{
 
     /**
      * Id to identity READ_CONTACTS permission request.
