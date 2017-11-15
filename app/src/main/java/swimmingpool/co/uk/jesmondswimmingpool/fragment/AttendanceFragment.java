@@ -39,6 +39,7 @@ public class AttendanceFragment extends BaseFragment {
     @Override
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
+//        list.setAdapter();
     }
 
 

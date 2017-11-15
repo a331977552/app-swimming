@@ -33,24 +33,19 @@ import swimmingpool.co.uk.jesmondswimmingpool.http.UrlConstant;
 import swimmingpool.co.uk.jesmondswimmingpool.utils.LogUtils;
 import swimmingpool.co.uk.jesmondswimmingpool.utils.SpUtils;
 import swimmingpool.co.uk.jesmondswimmingpool.utils.UIUtils;
+import swimmingpool.co.uk.jesmondswimmingpool.utils.UserManager;
 
 /**
  * A login screen that offers login via email/password.
  */
-public class LoginActivity extends BaseActivity{
+public class LoginActivity extends AppCompatActivity{
 
     /**
      * Id to identity READ_CONTACTS permission request.
      */
     private static final int REQUEST_READ_CONTACTS = 0;
 
-    /**
-     * A dummy authentication store containing known user names and passwords.
-     * TODO: remove after connecting to a real authentication system.
-     */
-    private static final String[] DUMMY_CREDENTIALS = new String[]{
-            "foo@example.com:hello", "bar@example.com:world"
-    };
+
     /**
      * Keep track of the login task to ensure we can cancel it if requested.
      */
@@ -156,6 +151,7 @@ public class LoginActivity extends BaseActivity{
                 @Override
                 public void onSuccess(CommonEntity<Tutor> o) {
                     Gson gson=new Gson();
+
                     String tutor = gson.toJson(o.getBean());
                     SpUtils.put("user",tutor);
                     UIUtils.showToastSafe(LoginActivity.this,o.getMsg());
@@ -179,6 +175,15 @@ public class LoginActivity extends BaseActivity{
     }
 
     private void loginSuccess() {
+        Gson gson=new Gson();
+        Tutor tutor1 = gson.fromJson(SpUtils.getString("user"), Tutor.class);
+
+            UserManager.getInstance().setAddress(tutor1.getAddress());
+            UserManager.getInstance().setId(tutor1.getId());
+            UserManager.getInstance().setName(tutor1.getName());
+            UserManager.getInstance().setNote(tutor1.getNote());
+            UserManager.getInstance().setPhonenumber(tutor1.getPhonenumber());
+
             startActivity(new Intent(this,MainActivity.class));
             finish();
     }

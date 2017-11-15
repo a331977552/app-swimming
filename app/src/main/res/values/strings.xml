@@ -9,7 +9,7 @@
     <string name="navigation_drawer_close">Close navigation drawer</string>
 
     <string name="action_settings">Settings</string>
-    <string name="title_activity_login">Sign in</string>
+    <string name="title_activity_login">Jsmond Swimming</string>
 
     <!-- Strings related to login -->
     <string name="prompt_email">Email</string>

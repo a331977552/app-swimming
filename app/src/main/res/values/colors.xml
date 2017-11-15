@@ -3,4 +3,86 @@
     <color name="colorPrimary">#3F51B5</color>
     <color name="colorPrimaryDark">#303F9F</color>
     <color name="colorAccent">#FF4081</color>
+    <color name="white_btn_pressed">#d7d7d7</color>
+    <color name="white">#FFFFFF</color>
+    <color name="window_background">#F5F0F0</color>
+
+
+
+    <color name="black">#FF000000</color>
+    <color name="red">#ff0000</color>
+    <color name="notice_time">#999999</color>
+    <color name="notice_info">#878787</color>
+    <color name="transparent">#00000000</color>
+    <color name="room_nomal">#989898</color>
+    <!-- 所有界面的公用背景，在appTheme中使用 -->
+    <color name="list_item_normal">#FFFFFFFF</color>
+    <color name="list_item_pressed">#FFE9E9E9</color>
+    <color name="roomcate_list_item_pressed">#2e2f32</color>
+    <color name="roomcate_list_item_normal">#323537</color>
+
+    <color name="roomcate_list_textcolor_pressed">#c6c6c6</color>
+    <color name="selected_gift_text">#CB258C</color>
+    <color name="unselected_user_text">#929292</color>
+    <color name="roomdetail_title_color">#333333</color>
+    <color name="room_more_user_default">#7F7F7F</color>
+    <color name="room_more_user_giamand">#FE0002</color>
+    <color name="room_more_user_Nobility">#FF9A00</color>
+
+    <!-- 房间详情颜色 -->
+    <color name="roomdetail_info_color">#3c3c3c</color>
+    <color name="roomdetail_anthor_color">#cccccc</color>
+    <color name="roomdetail_more_color">#6b6b6b</color>
+    <!-- 房间详情颜色 -->
+    <color name="notice_typetext">#000000</color>
+    <color name="c_363636">#363636</color>
+    <color name="gift_num_tip">#A4A4A4</color>
+    <!-- "今日直播" 选中时的背景色 -->
+    <color name="c_07aeed">#e70098</color>
+    <!-- 今日热门页面三个title 的默认色 -->
+    <color name="c_747474">#747474</color>
+    <color name="c_e7e7e7">#e7e7e7</color>
+    <color name="c_blue">#0000ff</color>
+    <!-- 充值字体颜色 -->
+    <color name="recharge_btn_pressed">#c52186</color>
+    <color name="recharge_btn_normal">#007BFF</color>
+    <color name="recharge_money_pressed">#4D4D4D</color>
+    <color name="recharge_money_normal">#FFFFFF</color>
+    <color name="recharge_money_text">#666666</color>
+    <!-- 送礼物中字体颜色 -->
+    <color name="giftcount_txt_color">#333333</color>
+    <color name="gift_name_color">#000000</color>
+    <color name="pop_login_tip_color">#ffffff</color>
+    <color name="room_user_menu_color">#e1e1e1</color>
+    <color name="room_tab_bar">#ececec</color>
+    <!-- 红钻会员信息颜色 -->
+    <color name="red_vip_name_color"> #FF3498</color>
+    <color name="recharge_success_id_color">#F31383</color>
+    <color name="room_user_list_more_bg">#e2e2e2</color>
+    <color name="home_more">#f5666d</color>
+    <color name="home_anchor">#333333</color>
+    <color name="home_face_border">#ffd1cccc</color>
+
+    <!-- 选人框背景 -->
+    <drawable name="chooseuser_item_bg_normal">#00000000</drawable>
+    <drawable name="chooseuser_item_bg_pressed">#464B4C</drawable>
+
+    <!-- 抽奖相关 -->
+    <color name="sweepstake_theme_color">#FF60AF</color>
+    <color name="half_transparent">#66000000</color>
+    <color name="sweepstake_list_bar_selected_text_color">#3C3C3C</color>
+    <color name="sweepstake_list_bar_unselected_text_color">#7E7E7E</color>
+
+    <!-- 弹出框颜色 -->
+    <color name="dialog_titlecolor">#333333</color>
+    <color name="dialog_messagecolor">#333333</color>
+    <color name="fffdf3">#fffdf3</color>
+    <color name="ff2492">#ff2492</color>
+    <color name="e9e7dd">#e9e7dd</color>
+    <color name="ff3399">#ff3399</color>
+    <color name="ffffff">#ffffff</color>
+
+    <color name="color_4b97ff">#4b97ff</color>
+
+
 </resources>

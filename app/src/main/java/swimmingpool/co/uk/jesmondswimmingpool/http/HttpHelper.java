@@ -99,13 +99,16 @@ public final class HttpHelper {
             @Override
             public void onFailure(Request request, IOException e) {
                 callBack.onFailure(getMessage(-1),-1);
+                callBack.after();
             }
 
             @Override
             public void onResponse(Response response) throws IOException {
                 int code = response.code();
-                if(code<200|| code>299)
+                if(code<200|| code>299){
                     callBack.onFailure(getMessage(code),code);
+                    callBack.after();
+                }
                 else {
                     ResponseBody body = response.body();
                     processing(callBack, body);
@@ -153,6 +156,7 @@ public final class HttpHelper {
                     @Override
                     public void run() {
                         callBack.onSuccess(finalString);
+                        callBack.after();
                     }
                 });
 

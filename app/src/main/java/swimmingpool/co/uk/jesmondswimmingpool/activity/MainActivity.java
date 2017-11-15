@@ -1,5 +1,6 @@
 package swimmingpool.co.uk.jesmondswimmingpool.activity;
 
+import android.media.Image;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.design.widget.BottomNavigationView;
@@ -9,9 +10,13 @@ import android.support.v4.view.GravityCompat;
 import android.support.v4.view.ViewPager;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
+import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.ImageView;
+import android.widget.TextView;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -23,9 +28,11 @@ import swimmingpool.co.uk.jesmondswimmingpool.adapter.HomeAdapter;
 import swimmingpool.co.uk.jesmondswimmingpool.fragment.AttendanceFragment;
 import swimmingpool.co.uk.jesmondswimmingpool.fragment.OperationFragment;
 import swimmingpool.co.uk.jesmondswimmingpool.fragment.StudentFragment;
+import swimmingpool.co.uk.jesmondswimmingpool.utils.SpUtils;
 import swimmingpool.co.uk.jesmondswimmingpool.utils.UIUtils;
+import swimmingpool.co.uk.jesmondswimmingpool.utils.UserManager;
 
-public class MainActivity extends BaseActivity
+public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
 
     ViewPager viewPager;
@@ -33,9 +40,12 @@ public class MainActivity extends BaseActivity
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+
         setContentView(R.layout.activity_main);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+
         BottomNavigationView navigation = (BottomNavigationView) findViewById(R.id.navigation);
         viewPager  = (ViewPager) findViewById(R.id.viewPager);
         navigation.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener);
@@ -48,6 +58,13 @@ public class MainActivity extends BaseActivity
         toggle.syncState();
 
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
+        View headerView = navigationView.getHeaderView(0);
+        ImageView iv_header = headerView.findViewById(R.id.iv_header);
+        TextView tv_tutorName = headerView.findViewById(R.id.tv_tutorName);
+        TextView tv_tutorEmail = headerView.findViewById(R.id.tv_tutorEmail);
+        tv_tutorName.setText(UserManager.getInstance().getName());
+        tv_tutorEmail.setText(UserManager.getInstance().getNote());
+
         navigationView.setNavigationItemSelectedListener(this);
         viewPager.setOffscreenPageLimit(3);
         AttendanceFragment attendanceFragment=new AttendanceFragment();
@@ -60,6 +77,8 @@ public class MainActivity extends BaseActivity
         viewPager.setAdapter(new HomeAdapter(getSupportFragmentManager(),fragments));
     }
 
+
+
     private BottomNavigationView.OnNavigationItemSelectedListener mOnNavigationItemSelectedListener
             = new BottomNavigationView.OnNavigationItemSelectedListener() {
 
@@ -67,7 +86,6 @@ public class MainActivity extends BaseActivity
         public boolean onNavigationItemSelected(@NonNull MenuItem item) {
             switch (item.getItemId()) {
                 case R.id.navigation_home:
-
                     viewPager.setCurrentItem(0);
                     return true;
                 case R.id.navigation_dashboard:
