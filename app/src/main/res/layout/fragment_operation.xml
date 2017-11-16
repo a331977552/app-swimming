@@ -1,281 +1,335 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.v7.widget.LinearLayoutCompat
-    xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:orientation="vertical"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:background="@color/window_background"
-    >
-    <android.support.v7.widget.LinearLayoutCompat
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:weightSum="10"
-        android:gravity="center"
-        android:padding="5dip"
-        android:clickable="true"
-        android:id="@+id/ll_addcourse"
-        android:background="@drawable/bg_btn_selector"
-        android:layout_marginTop="10dip"
-        >
-        <android.support.v4.widget.Space
-            android:layout_width="0dip"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            />
-        <android.support.v7.widget.AppCompatImageView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            app:srcCompat="@drawable/ic_add_black_24dp"
-            android:tint="@color/colorPrimary"
-            />
+    android:layout_width="match_parent"
+    android:scrollbars="none"
+    android:layout_height="match_parent"
 
-
-        <android.support.v4.widget.Space
-            android:layout_width="0dip"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            />
-        <android.support.v7.widget.AppCompatTextView
-            android:layout_width="0dip"
-            android:layout_weight="7"
-            android:layout_height="wrap_content"
-            android:text="Add course"
-            android:padding="10dip"
-            android:textSize="@dimen/normal_font_size"
-            />
-        <android.support.v7.widget.AppCompatImageView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            app:srcCompat="@drawable/ic_navigate_next_black_24dp"
-            android:tint="@color/colorPrimary"
-            />
-        <android.support.v4.widget.Space
-            android:layout_width="0dip"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            />
-
-
-    </android.support.v7.widget.LinearLayoutCompat>
-
-    <android.support.v7.widget.LinearLayoutCompat
-        android:clickable="true"
-        android:id="@+id/ll_deleteCourse"
-        android:background="@drawable/bg_btn_selector"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:weightSum="10"
-        android:gravity="center"
-        android:padding="5dip"
-        android:layout_marginTop="0.5dip"
-        >
-        <android.support.v4.widget.Space
-            android:layout_width="0dip"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            />
-        <android.support.v7.widget.AppCompatImageView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:tint="@color/colorPrimary"
-            app:srcCompat="@drawable/ic_delete_forever_black_24dp"
-            />
-
-
-        <android.support.v4.widget.Space
-            android:layout_width="0dip"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            />
-        <android.support.v7.widget.AppCompatTextView
-            android:layout_width="0dip"
-            android:layout_weight="7"
-            android:layout_height="wrap_content"
-            android:text="Delete course"
-            android:padding="10dip"
-
-            android:textSize="@dimen/normal_font_size"
-            />
-        <android.support.v7.widget.AppCompatImageView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:tint="@color/colorPrimary"
-            app:srcCompat="@drawable/ic_navigate_next_black_24dp"
-            />
-        <android.support.v4.widget.Space
-            android:layout_width="0dip"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            />
-
-
-    </android.support.v7.widget.LinearLayoutCompat>
-
-    <android.support.v7.widget.LinearLayoutCompat
-        android:layout_width="match_parent"
-        android:id="@+id/ll_addStudent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:weightSum="10"
-        android:gravity="center"
-        android:padding="5dip"
-        android:clickable="true"
-        android:background="@drawable/bg_btn_selector"
-        android:layout_marginTop="10dip"
-        >
-        <android.support.v4.widget.Space
-            android:layout_width="0dip"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            />
-        <android.support.v7.widget.AppCompatImageView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            app:srcCompat="@drawable/ic_person_add_black_24dp"
-            android:tint="@color/colorPrimary"
-            />
-
-
-        <android.support.v4.widget.Space
-            android:layout_width="0dip"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            />
-        <android.support.v7.widget.AppCompatTextView
-            android:layout_width="0dip"
-            android:layout_weight="7"
-            android:layout_height="wrap_content"
-            android:text="Add Student"
-            android:padding="10dip"
-            android:textSize="@dimen/normal_font_size"
-            />
-        <android.support.v7.widget.AppCompatImageView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            app:srcCompat="@drawable/ic_navigate_next_black_24dp"
-            android:tint="@color/colorPrimary"
-            />
-        <android.support.v4.widget.Space
-            android:layout_width="0dip"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            />
-
-
-    </android.support.v7.widget.LinearLayoutCompat>
-    <android.support.v7.widget.LinearLayoutCompat
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:id="@+id/ll_editStudent"
-        android:weightSum="10"
-        android:gravity="center"
-        android:padding="5dip"
-        android:clickable="true"
-        android:background="@drawable/bg_btn_selector"
-        android:layout_marginTop="0.5dip"
-        >
-        <android.support.v4.widget.Space
-            android:layout_width="0dip"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            />
-        <android.support.v7.widget.AppCompatImageView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            app:srcCompat="@drawable/ic_mode_edit_black_24dp"
-            android:tint="@color/colorPrimary"
-            />
-
-
-        <android.support.v4.widget.Space
-            android:layout_width="0dip"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            />
-        <android.support.v7.widget.AppCompatTextView
-            android:layout_width="0dip"
-            android:layout_weight="7"
-            android:layout_height="wrap_content"
-            android:text="Edit Student"
-            android:padding="10dip"
-            android:textSize="@dimen/normal_font_size"
-            />
-        <android.support.v7.widget.AppCompatImageView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            app:srcCompat="@drawable/ic_navigate_next_black_24dp"
-            android:tint="@color/colorPrimary"
-            />
-        <android.support.v4.widget.Space
-            android:layout_width="0dip"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            />
-
-
-    </android.support.v7.widget.LinearLayoutCompat>
+    android:background="@color/window_background">
 
     <android.support.v7.widget.LinearLayoutCompat
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:weightSum="10"
-        android:id="@+id/ll_attendance_record"
-        android:gravity="center"
-        android:padding="5dip"
-        android:clickable="true"
-        android:background="@drawable/bg_btn_selector"
-        android:layout_marginTop="0.5dip"
+        android:orientation="vertical"
+        android:paddingBottom="30dip"
         >
-        <android.support.v4.widget.Space
-            android:layout_width="0dip"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            />
-        <android.support.v7.widget.AppCompatImageView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            app:srcCompat="@drawable/ic_history"
-            android:tint="@color/colorPrimary"
-            />
+
+        <include layout="@layout/nav_header_main"></include>
 
 
-        <android.support.v4.widget.Space
-            android:layout_width="0dip"
+        <android.support.v7.widget.LinearLayoutCompat
+            android:id="@+id/ll_addcourse"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_weight="1"
-            />
-        <android.support.v7.widget.AppCompatTextView
-            android:layout_width="0dip"
-            android:layout_weight="7"
+            android:layout_marginTop="10dip"
+            android:background="@drawable/bg_btn_selector"
+            android:clickable="true"
+            android:gravity="center"
+            android:orientation="horizontal"
+            android:padding="5dip"
+            android:weightSum="10">
+
+            <android.support.v4.widget.Space
+                android:layout_width="0dip"
+                android:layout_height="wrap_content"
+                android:layout_weight="1" />
+
+            <android.support.v7.widget.AppCompatImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:tint="@color/colorPrimary"
+                app:srcCompat="@drawable/ic_add_black_24dp" />
+
+
+            <android.support.v4.widget.Space
+                android:layout_width="0dip"
+                android:layout_height="wrap_content"
+                android:layout_weight="1" />
+
+            <android.support.v7.widget.AppCompatTextView
+                android:layout_width="0dip"
+                android:layout_height="wrap_content"
+                android:layout_weight="7"
+                android:padding="10dip"
+                android:text="Add course"
+                android:textSize="@dimen/normal_font_size" />
+
+            <android.support.v7.widget.AppCompatImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:tint="@color/colorPrimary"
+                app:srcCompat="@drawable/ic_navigate_next_black_24dp" />
+
+            <android.support.v4.widget.Space
+                android:layout_width="0dip"
+                android:layout_height="wrap_content"
+                android:layout_weight="1" />
+
+
+        </android.support.v7.widget.LinearLayoutCompat>
+
+        <android.support.v7.widget.LinearLayoutCompat
+            android:id="@+id/ll_deleteCourse"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Attendance record"
-            android:padding="10dip"
-            android:textSize="@dimen/normal_font_size"
-            />
-        <android.support.v7.widget.AppCompatImageView
-            android:layout_width="wrap_content"
+            android:layout_marginTop="0.5dip"
+            android:background="@drawable/bg_btn_selector"
+            android:clickable="true"
+            android:gravity="center"
+            android:orientation="horizontal"
+            android:padding="5dip"
+            android:weightSum="10">
+
+            <android.support.v4.widget.Space
+                android:layout_width="0dip"
+                android:layout_height="wrap_content"
+                android:layout_weight="1" />
+
+            <android.support.v7.widget.AppCompatImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:tint="@color/colorPrimary"
+                app:srcCompat="@drawable/ic_delete_forever_black_24dp" />
+
+
+            <android.support.v4.widget.Space
+                android:layout_width="0dip"
+                android:layout_height="wrap_content"
+                android:layout_weight="1" />
+
+            <android.support.v7.widget.AppCompatTextView
+                android:layout_width="0dip"
+                android:layout_height="wrap_content"
+                android:layout_weight="7"
+                android:padding="10dip"
+                android:text="Delete course"
+
+                android:textSize="@dimen/normal_font_size" />
+
+            <android.support.v7.widget.AppCompatImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:tint="@color/colorPrimary"
+                app:srcCompat="@drawable/ic_navigate_next_black_24dp" />
+
+            <android.support.v4.widget.Space
+                android:layout_width="0dip"
+                android:layout_height="wrap_content"
+                android:layout_weight="1" />
+
+
+        </android.support.v7.widget.LinearLayoutCompat>
+
+        <android.support.v7.widget.LinearLayoutCompat
+            android:id="@+id/ll_addStudent"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_weight="1"
-            app:srcCompat="@drawable/ic_navigate_next_black_24dp"
-            android:tint="@color/colorPrimary"
-            />
-        <android.support.v4.widget.Space
-            android:layout_width="0dip"
+            android:layout_marginTop="10dip"
+            android:background="@drawable/bg_btn_selector"
+            android:clickable="true"
+            android:gravity="center"
+            android:orientation="horizontal"
+            android:padding="5dip"
+            android:weightSum="10">
+
+            <android.support.v4.widget.Space
+                android:layout_width="0dip"
+                android:layout_height="wrap_content"
+                android:layout_weight="1" />
+
+            <android.support.v7.widget.AppCompatImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:tint="@color/colorPrimary"
+                app:srcCompat="@drawable/ic_person_add_black_24dp" />
+
+
+            <android.support.v4.widget.Space
+                android:layout_width="0dip"
+                android:layout_height="wrap_content"
+                android:layout_weight="1" />
+
+            <android.support.v7.widget.AppCompatTextView
+                android:layout_width="0dip"
+                android:layout_height="wrap_content"
+                android:layout_weight="7"
+                android:padding="10dip"
+                android:text="Add Student"
+                android:textSize="@dimen/normal_font_size" />
+
+            <android.support.v7.widget.AppCompatImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:tint="@color/colorPrimary"
+                app:srcCompat="@drawable/ic_navigate_next_black_24dp" />
+
+            <android.support.v4.widget.Space
+                android:layout_width="0dip"
+                android:layout_height="wrap_content"
+                android:layout_weight="1" />
+
+
+        </android.support.v7.widget.LinearLayoutCompat>
+
+        <android.support.v7.widget.LinearLayoutCompat
+            android:id="@+id/ll_editStudent"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_weight="1"
-            />
+            android:layout_marginTop="0.5dip"
+            android:background="@drawable/bg_btn_selector"
+            android:clickable="true"
+            android:gravity="center"
+            android:orientation="horizontal"
+            android:padding="5dip"
+            android:weightSum="10">
+
+            <android.support.v4.widget.Space
+                android:layout_width="0dip"
+                android:layout_height="wrap_content"
+                android:layout_weight="1" />
+
+            <android.support.v7.widget.AppCompatImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:tint="@color/colorPrimary"
+                app:srcCompat="@drawable/ic_mode_edit_black_24dp" />
+
+
+            <android.support.v4.widget.Space
+                android:layout_width="0dip"
+                android:layout_height="wrap_content"
+                android:layout_weight="1" />
+
+            <android.support.v7.widget.AppCompatTextView
+                android:layout_width="0dip"
+                android:layout_height="wrap_content"
+                android:layout_weight="7"
+                android:padding="10dip"
+                android:text="Edit Student"
+                android:textSize="@dimen/normal_font_size" />
+
+            <android.support.v7.widget.AppCompatImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:tint="@color/colorPrimary"
+                app:srcCompat="@drawable/ic_navigate_next_black_24dp" />
+
+            <android.support.v4.widget.Space
+                android:layout_width="0dip"
+                android:layout_height="wrap_content"
+                android:layout_weight="1" />
+
+
+        </android.support.v7.widget.LinearLayoutCompat>
+
+        <android.support.v7.widget.LinearLayoutCompat
+            android:id="@+id/ll_attendance_record"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="0.5dip"
+            android:background="@drawable/bg_btn_selector"
+            android:clickable="true"
+            android:gravity="center"
+            android:orientation="horizontal"
+            android:padding="5dip"
+            android:weightSum="10">
+
+            <android.support.v4.widget.Space
+                android:layout_width="0dip"
+                android:layout_height="wrap_content"
+                android:layout_weight="1" />
+
+            <android.support.v7.widget.AppCompatImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:tint="@color/colorPrimary"
+                app:srcCompat="@drawable/ic_history" />
+
+
+            <android.support.v4.widget.Space
+                android:layout_width="0dip"
+                android:layout_height="wrap_content"
+                android:layout_weight="1" />
+
+            <android.support.v7.widget.AppCompatTextView
+                android:layout_width="0dip"
+                android:layout_height="wrap_content"
+                android:layout_weight="7"
+                android:padding="10dip"
+                android:text="Attendance record"
+                android:textSize="@dimen/normal_font_size" />
+
+            <android.support.v7.widget.AppCompatImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:tint="@color/colorPrimary"
+                app:srcCompat="@drawable/ic_navigate_next_black_24dp" />
+
+            <android.support.v4.widget.Space
+                android:layout_width="0dip"
+                android:layout_height="wrap_content"
+                android:layout_weight="1" />
+
+
+        </android.support.v7.widget.LinearLayoutCompat>
+
+        <android.support.v7.widget.LinearLayoutCompat
+            android:id="@+id/ll_addTutor"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dip"
+            android:background="@drawable/bg_btn_selector"
+            android:clickable="true"
+            android:gravity="center"
+            android:orientation="horizontal"
+            android:padding="5dip"
+            android:weightSum="10">
+
+            <android.support.v4.widget.Space
+                android:layout_width="0dip"
+                android:layout_height="wrap_content"
+                android:layout_weight="1" />
+
+            <android.support.v7.widget.AppCompatImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:tint="@color/colorPrimary"
+                app:srcCompat="@drawable/ic_group_add_black_24dp" />
+
+
+            <android.support.v4.widget.Space
+                android:layout_width="0dip"
+                android:layout_height="wrap_content"
+                android:layout_weight="1" />
+
+            <android.support.v7.widget.AppCompatTextView
+                android:layout_width="0dip"
+                android:layout_height="wrap_content"
+                android:layout_weight="7"
+                android:padding="10dip"
+                android:text="Add Tutor"
+                android:textSize="@dimen/normal_font_size" />
+
+            <android.support.v7.widget.AppCompatImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:tint="@color/colorPrimary"
+                app:srcCompat="@drawable/ic_navigate_next_black_24dp" />
+
+            <android.support.v4.widget.Space
+                android:layout_width="0dip"
+                android:layout_height="wrap_content"
+                android:layout_weight="1" />
+
+
+        </android.support.v7.widget.LinearLayoutCompat>
 
 
     </android.support.v7.widget.LinearLayoutCompat>
-
-
-
-</android.support.v7.widget.LinearLayoutCompat>
+</ScrollView>

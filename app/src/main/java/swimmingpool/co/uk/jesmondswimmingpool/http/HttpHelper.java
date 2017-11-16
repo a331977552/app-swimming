@@ -16,48 +16,49 @@ import java.lang.reflect.Method;
 import java.lang.reflect.ParameterizedType;
 import java.lang.reflect.Type;
 
+import swimmingpool.co.uk.jesmondswimmingpool.utils.LogUtils;
+
 /**
  * Created by cody on 2017/11/12.
  */
 
 public final class HttpHelper {
     private static final int TIME_OUT = -1;
-    private  OkHttpClient okHttpClient;
+    private OkHttpClient okHttpClient;
 
-    private static HttpHelper helper=new HttpHelper();
+    private static HttpHelper helper = new HttpHelper();
     private final Gson gson;
     private Handler handler;
-    private HttpHelper(){
+
+    private HttpHelper() {
         okHttpClient = new OkHttpClient();
-        handler=new Handler();
+        handler = new Handler();
         gson = new Gson();
     }
 
-    public static HttpHelper getInstance(){
+    public static HttpHelper getInstance() {
         return helper;
     }
+
     public static final int BAD_REQUEST = 400;
     public static final int SERVER_ERROR = 500;
     public static final int NO_FOUND = 404;
     public static final int REDIRECT = 302;
 
 
-
-
-
-    public void get(String url,final HttpCallBack callBack) {
+    public void get(String url, final HttpCallBack callBack) {
         Request request = new Request.Builder().url(url).get().build();
         okHttpClient.newCall(request).enqueue(new Callback() {
             @Override
             public void onFailure(Request request, IOException e) {
-                callBack.onFailure(getMessage(-1),-1);
+                callBack.onFailure(getMessage(-1), -1);
             }
 
             @Override
             public void onResponse(Response response) throws IOException {
                 int code = response.code();
-                if(code<200|| code>299)
-                    callBack.onFailure(getMessage(code),code);
+                if (code < 200 || code > 299)
+                    callBack.onFailure(getMessage(code), code);
                 else {
                     ResponseBody body = response.body();
                     processing(callBack, body);
@@ -66,20 +67,21 @@ public final class HttpHelper {
         });
 
     }
-    public void update(String url,Object obj, final HttpCallBack callBack) {
+
+    public void update(String url, Object obj, final HttpCallBack callBack) {
         RequestBody requestBody = RequestBody.create(MediaType.parse("application/json;charset=UTF-8"), gson.toJson(obj));
         Request request = new Request.Builder().url(url).patch(requestBody).build();
         okHttpClient.newCall(request).enqueue(new Callback() {
             @Override
             public void onFailure(Request request, IOException e) {
-                callBack.onFailure(getMessage(-1),-1);
+                callBack.onFailure(getMessage(-1), -1);
             }
 
             @Override
             public void onResponse(Response response) throws IOException {
                 int code = response.code();
-                if(code<200|| code>299)
-                    callBack.onFailure(getMessage(code),code);
+                if (code < 200 || code > 299)
+                    callBack.onFailure(getMessage(code), code);
                 else {
                     ResponseBody body = response.body();
                     processing(callBack, body);
@@ -91,25 +93,37 @@ public final class HttpHelper {
 
     public void post(String url, Object bean, final HttpCallBack callBack) {
         String content = gson.toJson(bean);
-
+        LogUtils.i(content);
         RequestBody requestBody = RequestBody.create(MediaType.parse("application/json;charset=UTF-8"), content);
 
         Request request = new Request.Builder().url(url).post(requestBody).build();
         okHttpClient.newCall(request).enqueue(new Callback() {
             @Override
             public void onFailure(Request request, IOException e) {
-                callBack.onFailure(getMessage(-1),-1);
-                callBack.after();
+
+                handler.post(new Runnable() {
+                    @Override
+                    public void run() {
+                        callBack.onFailure(getMessage(-1), -1);
+                        callBack.after();
+                    }
+                });
+
             }
 
             @Override
-            public void onResponse(Response response) throws IOException {
-                int code = response.code();
-                if(code<200|| code>299){
-                    callBack.onFailure(getMessage(code),code);
-                    callBack.after();
-                }
-                else {
+            public void onResponse(final Response response) throws IOException {
+                final int code = response.code();
+
+                if (!response.isSuccessful()) {
+                    handler.post(new Runnable() {
+                        @Override
+                        public void run() {
+                            callBack.onFailure(getMessage(code), code);
+                            callBack.after();
+                        }
+                    });
+                } else {
                     ResponseBody body = response.body();
                     processing(callBack, body);
                 }
@@ -118,20 +132,20 @@ public final class HttpHelper {
 
     }
 
-    public void remove(String url,final HttpCallBack callBack) {
+    public void remove(String url, final HttpCallBack callBack) {
         Request request = new Request.Builder().url(url).delete().build();
         okHttpClient.newCall(request).enqueue(new Callback() {
             @Override
             public void onFailure(Request request, IOException e) {
-                callBack.onFailure(getMessage(-1),-1);
+                callBack.onFailure(getMessage(-1), -1);
                 callBack.after();
             }
 
             @Override
             public void onResponse(Response response) throws IOException {
                 int code = response.code();
-                if(code<200|| code>299)
-                    callBack.onFailure(getMessage(code),code);
+                if (code < 200 || code > 299)
+                    callBack.onFailure(getMessage(code), code);
                 else {
                     ResponseBody body = response.body();
                     processing(callBack, body);
@@ -144,13 +158,14 @@ public final class HttpHelper {
 
 
     private void processing(final HttpCallBack callBack, ResponseBody body) {
-        ParameterizedType parameterizedType=(ParameterizedType) callBack.getClass().getGenericInterfaces()[0];
+        ParameterizedType parameterizedType = (ParameterizedType) callBack.getClass().getGenericInterfaces()[0];
         Type type = parameterizedType.getActualTypeArguments()[0];
         String string = null;
         final Object o;
         try {
             string = body.string();
-            if(type ==String.class){
+            LogUtils.i("result: " + string);
+            if (type == String.class) {
                 final String finalString = string;
                 handler.post(new Runnable() {
                     @Override
@@ -160,41 +175,40 @@ public final class HttpHelper {
                     }
                 });
 
-            }else {
-            o= gson.fromJson(string, type);
-            Method methodStatus = o.getClass().getMethod("getStatus");
-            final int status = (int) methodStatus.invoke(o);
-            if(status!=0)
-            {
-                Method methodMsg =    o.getClass().getMethod("getMsg");
-                final String msg = (String) methodMsg.invoke(o);
-                handler.post(new Runnable() {
-                    @Override
-                    public void run() {
-                        callBack.onFailure(msg,status);
-                        callBack.after();
-                    }
-                });
+            } else {
+                o = gson.fromJson(string, type);
+                Method methodStatus = o.getClass().getMethod("getStatus");
+                final int status = (int) methodStatus.invoke(o);
+                if (status != 0) {
+                    Method methodMsg = o.getClass().getMethod("getMsg");
+                    final String msg = (String) methodMsg.invoke(o);
+                    handler.post(new Runnable() {
+                        @Override
+                        public void run() {
+                            callBack.onFailure(msg, status);
+                            callBack.after();
+                        }
+                    });
 
-            }else{
-                handler.post(new Runnable() {
-                    @Override
-                    public void run() {
-                        callBack.onSuccess(o);
-                        callBack.after();
-                    }
-                });
+                } else {
+                    handler.post(new Runnable() {
+                        @Override
+                        public void run() {
+                            callBack.onSuccess(o);
+                            callBack.after();
+                        }
+                    });
 
-            }
+                }
             }
         } catch (Exception e) {
             e.printStackTrace();
             handler.post(new Runnable() {
                 @Override
                 public void run() {
-                    callBack.onFailure("failed to get info",-2);
+                    callBack.onFailure("failed to get info", -2);
                     callBack.after();
-                    return ;
+                    return;
                 }
             });
 
@@ -205,7 +219,7 @@ public final class HttpHelper {
 
     public String getMessage(int code) {
         String msg = "sever error";
-        
+
         switch (code) {
             case BAD_REQUEST:
                 msg = "server reject";
@@ -231,4 +245,4 @@ public final class HttpHelper {
         return msg;
     }
 
-    }
+}

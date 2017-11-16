@@ -99,4 +99,14 @@ public class UserManager {
         this.power = power;
     }
 
+    public void clean() {
+        setPhonenumber(null);
+        setNote(null);
+        setName(null);
+        setId(null);
+        setPower(null);
+        setUsername(null);
+        setPassword(null);
+        setAddress(null);
+    }
 }

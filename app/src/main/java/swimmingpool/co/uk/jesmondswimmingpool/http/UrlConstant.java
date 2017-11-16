@@ -38,12 +38,5 @@ public interface UrlConstant {
     String CHANGE=BASE_URL+"course/change";
 
 
-
-
-
-
-
-
-
-
+    String GET_COURSE_BY_STUDENT =BASE_URL+ "course/student/";
 }

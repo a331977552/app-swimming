@@ -1,5 +1,7 @@
 package swimmingpool.co.uk.jesmondswimmingpool.adapter;
 
+import android.app.Activity;
+
 import java.util.List;
 
 /**
@@ -7,8 +9,8 @@ import java.util.List;
  */
 
 public class AttendenceAdapter extends DefaultAdpater{
-    public AttendenceAdapter(List list) {
-        super(list);
+    public AttendenceAdapter(Activity activity,List list) {
+        super(activity,list);
     }
 
     @Override

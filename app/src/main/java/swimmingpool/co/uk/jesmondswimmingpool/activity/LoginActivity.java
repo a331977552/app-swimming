@@ -9,12 +9,10 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Build;
 import android.os.Bundle;
 import android.text.TextUtils;
-import android.util.Log;
 import android.view.KeyEvent;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.inputmethod.EditorInfo;
-import android.widget.ArrayAdapter;
 import android.widget.AutoCompleteTextView;
 import android.widget.Button;
 import android.widget.EditText;
@@ -22,15 +20,12 @@ import android.widget.TextView;
 
 import com.google.gson.Gson;
 
-import java.util.List;
-
 import swimmingpool.co.uk.jesmondswimmingpool.R;
 import swimmingpool.co.uk.jesmondswimmingpool.entity.CommonEntity;
 import swimmingpool.co.uk.jesmondswimmingpool.entity.Tutor;
 import swimmingpool.co.uk.jesmondswimmingpool.http.HttpCallBack;
 import swimmingpool.co.uk.jesmondswimmingpool.http.HttpHelper;
 import swimmingpool.co.uk.jesmondswimmingpool.http.UrlConstant;
-import swimmingpool.co.uk.jesmondswimmingpool.utils.LogUtils;
 import swimmingpool.co.uk.jesmondswimmingpool.utils.SpUtils;
 import swimmingpool.co.uk.jesmondswimmingpool.utils.UIUtils;
 import swimmingpool.co.uk.jesmondswimmingpool.utils.UserManager;
@@ -129,7 +124,7 @@ public class LoginActivity extends AppCompatActivity{
             focusView = mEmailView;
             cancel = true;
         } else if (!isEmailValid(username)) {
-            mEmailView.setError(getString(R.string.error_invalid_email));
+            mEmailView.setError(getString(R.string.error_invalid_name));
             focusView = mEmailView;
             cancel = true;
         }

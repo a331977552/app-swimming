@@ -16,13 +16,26 @@
     <string name="prompt_password">Password</string>
     <string name="action_sign_in">Sign in</string>
     <string name="action_sign_in_short">Sign in</string>
-    <string name="error_invalid_email">This username  is invalid</string>
+    <string name="error_invalid_name">This username  is invalid</string>
     <string name="error_invalid_password">This password is too short</string>
     <string name="error_incorrect_password">This password is incorrect</string>
     <string name="error_field_required">This field is required</string>
     <string name="permission_rationale">"Contacts permissions are needed for providing email
         completions."
     </string>
-    <string name="prompt_userName">username</string>
+    <string name="prompt_userName">Username</string>
     <string name="title_activity_main2">Main2Activity</string>
+    <string name="title_activity_student_detail">StudentDetail</string>
+    <string name="next" >next</string>
+    <string name="name">Name</string>
+    <string name="username">Username</string>
+    <string name="comfirm_password" >Confirm password</string>
+    <string name="address">Address</string>
+    <string name="note">Note</string>
+    <string name="phoneNumber">PhoneNumber</string>
+    <string name="comfirm">confirm</string>
+    <string name="error_tooshort_username">username is too short</string>
+    <string name="error_tooshort_password">password is too short</string>
+    <string name="error_different_password">different from password</string>
+    <string name="please_wait">please wait...</string>
 </resources>

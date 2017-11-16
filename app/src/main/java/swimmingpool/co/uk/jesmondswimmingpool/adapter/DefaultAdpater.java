@@ -1,5 +1,6 @@
 package swimmingpool.co.uk.jesmondswimmingpool.adapter;
 
+import android.app.Activity;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
@@ -11,9 +12,15 @@ import java.util.List;
  */
 
 public abstract class DefaultAdpater<Bean>  extends BaseAdapter{
+    private Activity activity;
     private List<Bean> beanList;
 
-    public DefaultAdpater(List<Bean> beanList) {
+    public Activity getActivity() {
+        return activity;
+    }
+
+    public DefaultAdpater(Activity activity, List<Bean> beanList) {
+        this.activity = activity;
 
         this.beanList = beanList;
     }
@@ -41,6 +48,7 @@ public abstract class DefaultAdpater<Bean>  extends BaseAdapter{
         }else{
             holder=getHolder();
         }
+
         holder.setData(beanList.get(position));
         return holder.getRootView();
     }

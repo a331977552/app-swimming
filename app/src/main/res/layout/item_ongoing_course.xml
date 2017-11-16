@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v7.widget.LinearLayoutCompat
+    xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal"
+    android:gravity="center_vertical"
+    android:padding="10dip"
+    android:weightSum="10"
+    >
+    <android.support.v4.widget.Space
+        android:layout_width="0dip"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        />
+    <android.support.v7.widget.AppCompatTextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Course: "
+        android:textColor="@color/dialog_messagecolor"
+        />
+    <android.support.v7.widget.AppCompatTextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text=" Sea Horse"
+        android:id="@+id/tv_coursename"
+        android:textColor="@color/dialog_messagecolor"
+        />
+    <android.support.v4.widget.Space
+        android:layout_width="0dip"
+        android:layout_height="wrap_content"
+        android:layout_weight="8"
+        />
+    <android.support.v7.widget.AppCompatTextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:padding="3dip"
+        android:text="change"
+        android:id="@+id/tv_change"
+        android:textColor="@color/white"
+        android:background="@drawable/white_blue_stroke_btn_selector"
+        />
+
+    <android.support.v4.widget.Space
+    android:layout_width="0dip"
+    android:layout_height="wrap_content"
+    android:layout_weight="1"
+    />
+
+</android.support.v7.widget.LinearLayoutCompat>

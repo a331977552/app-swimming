@@ -34,7 +34,7 @@
             android:label="@string/title_activity_main"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
-            android:name=".activity.AttendanceCActivity"
+            android:name=".activity.AttendanceActivity"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name=".activity.EditStudentActivity"
@@ -47,6 +47,13 @@
         <activity
             android:name=".activity.AddStudentActivity"
             android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".activity.StudentDetailActivity"
+            android:label="@string/title_activity_student_detail"
+            android:theme="@style/AppTheme.NoActionBar"></activity>
+        <activity android:name=".fragment.AddTutorActivity"
+            android:theme="@style/AppTheme.NoActionBar"
+            />
     </application>
 
 </manifest>

@@ -1,6 +1,15 @@
 package swimmingpool.co.uk.jesmondswimmingpool.entity;
 
 public class TutorVo {
+	private Integer totalPage;
+
+	public Integer getTotalPage() {
+		return totalPage;
+	}
+
+	public void setTotalPage(Integer totalPage) {
+		this.totalPage = totalPage;
+	}
 
 	private Tutor tutor;
 	private Integer currentPage;
