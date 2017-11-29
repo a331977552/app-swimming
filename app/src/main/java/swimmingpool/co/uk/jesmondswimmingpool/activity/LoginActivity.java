@@ -4,10 +4,9 @@ import android.animation.Animator;
 import android.animation.AnimatorListenerAdapter;
 import android.annotation.TargetApi;
 import android.content.Intent;
-import android.support.v7.app.AppCompatActivity;
-
 import android.os.Build;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.text.TextUtils;
 import android.view.KeyEvent;
 import android.view.View;
@@ -28,7 +27,6 @@ import swimmingpool.co.uk.jesmondswimmingpool.http.HttpHelper;
 import swimmingpool.co.uk.jesmondswimmingpool.http.UrlConstant;
 import swimmingpool.co.uk.jesmondswimmingpool.utils.SpUtils;
 import swimmingpool.co.uk.jesmondswimmingpool.utils.UIUtils;
-import swimmingpool.co.uk.jesmondswimmingpool.utils.UserManager;
 
 /**
  * A login screen that offers login via email/password.
@@ -171,13 +169,8 @@ public class LoginActivity extends AppCompatActivity{
 
     private void loginSuccess() {
         Gson gson=new Gson();
-        Tutor tutor1 = gson.fromJson(SpUtils.getString("user"), Tutor.class);
+            Tutor tutor1 = gson.fromJson(SpUtils.getString("user"), Tutor.class);
 
-            UserManager.getInstance().setAddress(tutor1.getAddress());
-            UserManager.getInstance().setId(tutor1.getId());
-            UserManager.getInstance().setName(tutor1.getName());
-            UserManager.getInstance().setNote(tutor1.getNote());
-            UserManager.getInstance().setPhonenumber(tutor1.getPhonenumber());
 
             startActivity(new Intent(this,MainActivity.class));
             finish();

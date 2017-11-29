@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:padding="15dip"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@drawable/bg_btn_selector"
+    >
+
+    <android.support.v7.widget.AppCompatTextView
+        android:id="@+id/tv_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Name: Tom Cat"
+        android:textColor="@color/black"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <android.support.v7.widget.AppCompatTextView
+        android:id="@+id/tv_level"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="10sp"
+        android:layout_marginLeft="10dip"
+
+        android:text="Level: 1"
+        app:layout_constraintStart_toEndOf="@+id/tv_name"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <android.support.v7.widget.AppCompatTextView
+        android:id="@+id/tv_paid"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="10sp"
+        android:layout_marginLeft="10dip"
+        android:text="Paid: yes"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/tv_parentPhoneNumber" />
+
+    <android.support.v7.widget.AppCompatTextView
+        android:layout_marginTop="10dip"
+        android:id="@+id/tv_parentPhoneNumber"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Tel:07759697851"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tv_name" />
+
+    <TextView
+        android:id="@+id/tv_achievement"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:minHeight="33dip"
+        android:paddingLeft="10dip"
+        android:paddingRight="10dip"
+        android:text="Achieve"
+        android:textSize="12sp"
+        android:textColor="@color/colorPrimary"
+        android:layout_marginRight="5dip"
+        android:background="@drawable/blue_white_stroke_btn_selector"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/submitbutton"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <swimmingpool.co.uk.jesmondswimmingpool.view.LoadingButton
+    android:id="@+id/submitbutton"
+    android:layout_width="wrap_content"
+    android:layout_height="36dip"
+    app:buttonTextSize="12sp"
+    app:buttonText="Sign In"
+    app:buttonColor="@color/colorPrimary"
+    app:layout_constraintBottom_toBottomOf="parent"
+    app:layout_constraintEnd_toEndOf="parent"
+    app:layout_constraintTop_toTopOf="parent" />
+
+</android.support.constraint.ConstraintLayout>

@@ -4,22 +4,20 @@
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     >
-   <com.scwang.smartrefresh.layout.SmartRefreshLayout
-       app:srlEnableHeaderTranslationContent="false"
-       app:srlEnableLoadmore="true"
-       app:srlEnableFooterTranslationContent="true"
-       android:layout_width="match_parent"
-       android:layout_height="match_parent"
-       android:id="@+id/refreshLayout"
-       >
-       <android.support.v7.widget.RecyclerView
-           android:id="@+id/recyclerview"
-           android:layout_width="match_parent"
-           android:layout_height="match_parent"
-           android:overScrollMode="never"
-           android:background="#fff" />
+  <android.support.v4.widget.SwipeRefreshLayout
+      android:layout_width="match_parent"
+      android:layout_height="match_parent"
+      android:id="@+id/swipeRefreshLayout"
+      >
+      <android.support.v7.widget.ListViewCompat
+          android:layout_width="match_parent"
+          android:layout_height="match_parent"
+          android:divider="@color/white_btn_pressed"
+          android:dividerHeight="0.5dip"
+          android:id="@+id/list"
+          />
 
-   </com.scwang.smartrefresh.layout.SmartRefreshLayout>
+  </android.support.v4.widget.SwipeRefreshLayout>
 
 
 </android.support.constraint.ConstraintLayout>

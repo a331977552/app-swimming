@@ -1,6 +1,5 @@
 package swimmingpool.co.uk.jesmondswimmingpool.activity;
 
-import android.media.Image;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.design.widget.BottomNavigationView;
@@ -21,21 +20,18 @@ import android.widget.TextView;
 import java.util.ArrayList;
 import java.util.List;
 
-import butterknife.BindView;
-import butterknife.ButterKnife;
 import swimmingpool.co.uk.jesmondswimmingpool.R;
 import swimmingpool.co.uk.jesmondswimmingpool.adapter.HomeAdapter;
 import swimmingpool.co.uk.jesmondswimmingpool.fragment.AttendanceFragment;
 import swimmingpool.co.uk.jesmondswimmingpool.fragment.OperationFragment;
 import swimmingpool.co.uk.jesmondswimmingpool.fragment.StudentFragment;
-import swimmingpool.co.uk.jesmondswimmingpool.utils.SpUtils;
-import swimmingpool.co.uk.jesmondswimmingpool.utils.UIUtils;
 import swimmingpool.co.uk.jesmondswimmingpool.utils.UserManager;
 
 public class MainActivity extends AppCompatActivity
-        implements NavigationView.OnNavigationItemSelectedListener {
+        implements NavigationView.OnNavigationItemSelectedListener, ViewPager.OnPageChangeListener {
 
     ViewPager viewPager;
+    private BottomNavigationView navigation;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -46,10 +42,10 @@ public class MainActivity extends AppCompatActivity
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-        BottomNavigationView navigation = (BottomNavigationView) findViewById(R.id.navigation);
+        navigation = (BottomNavigationView) findViewById(R.id.navigation);
         viewPager  = (ViewPager) findViewById(R.id.viewPager);
         navigation.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener);
-
+        viewPager.addOnPageChangeListener(this);
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
@@ -154,5 +150,35 @@ public class MainActivity extends AppCompatActivity
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);
         return true;
+    }
+
+    @Override
+    public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
+
+    }
+
+    @Override
+    public void onPageSelected(int position) {
+        int id=R.id.navigation_home;;
+        switch (position){
+            case 0:
+                setTitle("Courses");
+                id=R.id.navigation_home;
+                break;
+            case 1:
+                id=R.id.navigation_dashboard;
+                setTitle("Students");
+                break;
+                case 2:
+                id=R.id.navigation_notifications;
+                    setTitle("Home");
+                break;
+        }
+        navigation.setSelectedItemId(id);
+    }
+
+    @Override
+    public void onPageScrollStateChanged(int state) {
+
     }
 }

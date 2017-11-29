@@ -25,6 +25,10 @@ public abstract class DefaultAdpater<Bean>  extends BaseAdapter{
         this.beanList = beanList;
     }
 
+    public void setListAndRefresh(List<Bean> data){
+        beanList=data;
+        notifyDataSetChanged();
+    }
     @Override
     public int getCount() {
         return beanList.size();

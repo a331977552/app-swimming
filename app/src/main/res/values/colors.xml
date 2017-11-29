@@ -12,8 +12,9 @@
     <color name="black">#FF000000</color>
     <color name="red">#ff0000</color>
     <color name="notice_time">#999999</color>
-    <color name="notice_info">#878787</color>
+    <color name="notice_info">#878787</color>e
     <color name="transparent">#00000000</color>
+    <color name="transparent_slight">#11000000</color>
     <color name="room_nomal">#989898</color>
     <!-- 所有界面的公用背景，在appTheme中使用 -->
     <color name="list_item_normal">#FFFFFFFF</color>

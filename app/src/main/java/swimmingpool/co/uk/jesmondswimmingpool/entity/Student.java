@@ -1,6 +1,7 @@
 package swimmingpool.co.uk.jesmondswimmingpool.entity;
 
 import java.io.Serializable;
+import java.util.Date;
 
 public class Student implements Serializable{
     private Long id;
@@ -8,6 +9,8 @@ public class Student implements Serializable{
     private String name;
 
     private String level;
+
+    private String startdate;
 
     private Integer max;
 
@@ -31,7 +34,7 @@ public class Student implements Serializable{
 
     private String note;
 
-    private String enrolmentdate;
+    private Date createdate;
 
     public Long getId() {
         return id;
@@ -55,6 +58,14 @@ public class Student implements Serializable{
 
     public void setLevel(String level) {
         this.level = level == null ? null : level.trim();
+    }
+
+    public String getStartdate() {
+        return startdate;
+    }
+
+    public void setStartdate(String startdate) {
+        this.startdate = startdate == null ? null : startdate.trim();
     }
 
     public Integer getMax() {
@@ -145,16 +156,11 @@ public class Student implements Serializable{
         this.note = note == null ? null : note.trim();
     }
 
-    public String getEnrolmentdate() {
-        return enrolmentdate;
+    public Date getCreatedate() {
+        return createdate;
     }
 
-    public void setEnrolmentdate(String enrolmentdate) {
-        this.enrolmentdate = enrolmentdate == null ? null : enrolmentdate.trim();
-    }
-    
-    @Override
-    public int hashCode() {
-    	return id.intValue();
+    public void setCreatedate(Date createdate) {
+        this.createdate = createdate;
     }
 }

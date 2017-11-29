@@ -1,29 +1,24 @@
 package swimmingpool.co.uk.jesmondswimmingpool.fragment;
 
-import android.app.ProgressDialog;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.text.TextUtils;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.ProgressBar;
 
 import com.afollestad.materialdialogs.MaterialDialog;
-import com.google.gson.Gson;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 import swimmingpool.co.uk.jesmondswimmingpool.R;
 import swimmingpool.co.uk.jesmondswimmingpool.activity.BaseActivity;
-import swimmingpool.co.uk.jesmondswimmingpool.activity.LoginActivity;
 import swimmingpool.co.uk.jesmondswimmingpool.entity.CommonEntity;
 import swimmingpool.co.uk.jesmondswimmingpool.entity.Tutor;
 import swimmingpool.co.uk.jesmondswimmingpool.http.HttpCallBack;
 import swimmingpool.co.uk.jesmondswimmingpool.http.HttpHelper;
 import swimmingpool.co.uk.jesmondswimmingpool.http.UrlConstant;
-import swimmingpool.co.uk.jesmondswimmingpool.utils.SpUtils;
 import swimmingpool.co.uk.jesmondswimmingpool.utils.UIUtils;
 
 /**
@@ -133,10 +128,7 @@ public class AddTutorActivity extends BaseActivity {
             Tutor tutor=new Tutor();
             tutor.setUsername(username);
             tutor.setPassword(password);
-            tutor.setName(name);
-            tutor.setNote(note);
-            tutor.setPhonenumber(phoneNumber);
-            tutor.setAddress(address);
+
             HttpHelper.getInstance().post(UrlConstant.ADD_TUTOR, tutor, new HttpCallBack<CommonEntity<Tutor>>() {
                 @Override
                 public void onSuccess(CommonEntity<Tutor> o) {

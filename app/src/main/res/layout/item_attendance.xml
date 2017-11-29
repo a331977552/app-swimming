@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:padding="10dip"
+    android:background="@drawable/bg_btn_selector"
+    >
+
+    <android.support.v7.widget.AppCompatTextView
+        android:id="@+id/tv_name"
+
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Test"
+        android:textSize="16sp"
+        android:textColor="@color/black"
+        android:textStyle="bold"
+        />
+
+    <android.support.v7.widget.AppCompatTextView
+        android:id="@+id/tv_id"
+
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Test"
+        android:textColor="@color/roomcate_list_item_pressed"
+        android:textSize="14sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        />
+
+
+    <android.support.v7.widget.AppCompatTextView
+        android:id="@+id/tv_tutorName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="8dp"
+        android:text="Name"
+        android:textColor="@color/roomcate_list_item_pressed"
+        android:textSize="14sp"
+        app:layout_constraintTop_toBottomOf="@id/tv_name"
+    />
+
+
+</android.support.constraint.ConstraintLayout>

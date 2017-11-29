@@ -3,6 +3,7 @@ package swimmingpool.co.uk.jesmondswimmingpool.http;
 import android.os.Handler;
 
 import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
 import com.squareup.okhttp.Callback;
 import com.squareup.okhttp.MediaType;
 import com.squareup.okhttp.OkHttpClient;
@@ -15,6 +16,7 @@ import java.io.IOException;
 import java.lang.reflect.Method;
 import java.lang.reflect.ParameterizedType;
 import java.lang.reflect.Type;
+import java.util.concurrent.TimeUnit;
 
 import swimmingpool.co.uk.jesmondswimmingpool.utils.LogUtils;
 
@@ -32,8 +34,11 @@ public final class HttpHelper {
 
     private HttpHelper() {
         okHttpClient = new OkHttpClient();
+        okHttpClient.setConnectTimeout(30, TimeUnit.SECONDS);
+        okHttpClient.setReadTimeout(60, TimeUnit.SECONDS);
+        okHttpClient.setWriteTimeout(60, TimeUnit.SECONDS);
         handler = new Handler();
-        gson = new Gson();
+        gson = new GsonBuilder().setDateFormat("yyyy-MM-dd").create();
     }
 
     public static HttpHelper getInstance() {
@@ -91,9 +96,8 @@ public final class HttpHelper {
 
     }
 
-    public void post(String url, Object bean, final HttpCallBack callBack) {
+        public void post(String url, Object bean, final HttpCallBack callBack) {
         String content = gson.toJson(bean);
-        LogUtils.i(content);
         RequestBody requestBody = RequestBody.create(MediaType.parse("application/json;charset=UTF-8"), content);
 
         Request request = new Request.Builder().url(url).post(requestBody).build();
@@ -158,7 +162,15 @@ public final class HttpHelper {
 
 
     private void processing(final HttpCallBack callBack, ResponseBody body) {
-        ParameterizedType parameterizedType = (ParameterizedType) callBack.getClass().getGenericInterfaces()[0];
+
+            ParameterizedType parameterizedType=null;
+            if(callBack.getClass().getGenericInterfaces().length==0)
+            {
+                    parameterizedType= (ParameterizedType) callBack.getClass().getGenericSuperclass();
+            }else{
+                parameterizedType = (ParameterizedType) callBack.getClass().getGenericInterfaces()[0];
+            }
+
         Type type = parameterizedType.getActualTypeArguments()[0];
         String string = null;
         final Object o;

@@ -3,19 +3,12 @@ package swimmingpool.co.uk.jesmondswimmingpool.fragment;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
-import android.support.v7.widget.DefaultItemAnimator;
-import android.support.v7.widget.DividerItemDecoration;
-import android.support.v7.widget.LinearLayoutManager;
-import android.support.v7.widget.RecyclerView;
+import android.support.v4.widget.SwipeRefreshLayout;
+import android.support.v7.widget.ListViewCompat;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
-
-import com.scwang.smartrefresh.layout.SmartRefreshLayout;
-import com.scwang.smartrefresh.layout.api.RefreshLayout;
-import com.scwang.smartrefresh.layout.listener.OnLoadmoreListener;
-import com.scwang.smartrefresh.layout.listener.OnRefreshListener;
 
 import java.util.List;
 
@@ -26,10 +19,8 @@ import swimmingpool.co.uk.jesmondswimmingpool.R;
 import swimmingpool.co.uk.jesmondswimmingpool.activity.StudentDetailActivity;
 import swimmingpool.co.uk.jesmondswimmingpool.adapter.StudentAdapter;
 import swimmingpool.co.uk.jesmondswimmingpool.entity.CommonEntity;
-import swimmingpool.co.uk.jesmondswimmingpool.entity.PageBean;
 import swimmingpool.co.uk.jesmondswimmingpool.entity.Student;
-import swimmingpool.co.uk.jesmondswimmingpool.entity.Tutor;
-import swimmingpool.co.uk.jesmondswimmingpool.entity.TutorVo;
+import swimmingpool.co.uk.jesmondswimmingpool.entity.custom.StudentVo;
 import swimmingpool.co.uk.jesmondswimmingpool.http.HttpCallBack;
 import swimmingpool.co.uk.jesmondswimmingpool.http.HttpHelper;
 import swimmingpool.co.uk.jesmondswimmingpool.http.UrlConstant;
@@ -42,13 +33,14 @@ import swimmingpool.co.uk.jesmondswimmingpool.utils.UIUtils;
 public class StudentFragment extends BaseFragment implements AdapterView.OnItemClickListener {
 
     Unbinder unbinder;
-    @BindView(R.id.recyclerview)
-    RecyclerView recyclerview;
-    @BindView(R.id.refreshLayout)
-    SmartRefreshLayout refreshLayout;
+    @BindView(R.id.list)
+    ListViewCompat list;
+    @BindView(R.id.swipeRefreshLayout)
+    SwipeRefreshLayout swipeRefreshLayout;
+
+
     private List<Student> students;
     private StudentAdapter studentAdapter;
-    private TutorVo tutorVo;
 
 
     @Nullable
@@ -61,74 +53,45 @@ public class StudentFragment extends BaseFragment implements AdapterView.OnItemC
     }
 
     private void init() {
-        refreshLayout.setOnRefreshListener(new OnRefreshListener() {
+        swipeRefreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
             @Override
-            public void onRefresh(RefreshLayout refreshlayout) {
-                refreshLayout.setEnableAutoLoadmore(true);
-                refreshLayout.setEnableLoadmore(true);
-                load(0);
+            public void onRefresh() {
+                refresh();
             }
         });
-        refreshLayout.setOnLoadmoreListener(new OnLoadmoreListener() {
-            @Override
-            public void onLoadmore(RefreshLayout refreshlayout) {
-                int i=0;
-                if(tutorVo!=null)
-                {
-                    i = tutorVo.getCurrentPage() + 1;
-
-                }
-                load(i);
-            }
-        });
-
-        recyclerview.setLayoutManager(new LinearLayoutManager(getActivity(),LinearLayoutManager.VERTICAL,false));
-        recyclerview.setItemAnimator(new DefaultItemAnimator());
-        recyclerview.addItemDecoration(new DividerItemDecoration(
-                getActivity(), DividerItemDecoration.VERTICAL));
-        load(0);
+        refresh();
 
 
 
     }
 
-    private void load(int currentPage) {
-        tutorVo = new TutorVo();
-        tutorVo.setCurrentPage(currentPage);
-        Tutor tutor=new Tutor();
-        tutor.setId(swimmingpool.co.uk.jesmondswimmingpool.utils.UserManager.getInstance().getId());
-        tutorVo.setTutor(tutor);
+    private void refresh() {
+        StudentVo tutorVo = new StudentVo();
 
-        HttpHelper.getInstance().post(UrlConstant.GET_ALL_STUDENT_BY_TUTOR, tutorVo, new HttpCallBack<CommonEntity<PageBean<Student>>>() {
+
+        HttpHelper.getInstance().post(UrlConstant.GET_ALL_STUDENT, tutorVo, new HttpCallBack<CommonEntity<List<Student>>>() {
             @Override
-            public void onSuccess(CommonEntity<PageBean<Student>> listCommonEntity) {
-                if(studentAdapter==null){
-                    students = listCommonEntity.getBean().getBeans();
+            public void onSuccess(CommonEntity<List<Student>> listCommonEntity) {
+                students = listCommonEntity.getBean();
+
+                if (studentAdapter == null) {
                     studentAdapter = new StudentAdapter(getActivity(), students);
-                    studentAdapter.setOnItemClickListener(StudentFragment.this);
-                    recyclerview.setAdapter(studentAdapter);
+                    list.setAdapter(studentAdapter);
+                    list.setOnItemClickListener(StudentFragment.this);
                 }else{
-                    students.addAll(listCommonEntity.getBean().getBeans());
                     studentAdapter.setListAndRefresh(students);
                 }
-                tutorVo.setTotalPage(listCommonEntity.getBean().getTotalPage());
-                if((tutorVo.getCurrentPage()+1)==tutorVo.getTotalPage())
-                {
-                    //no more content
-                    refreshLayout.setEnableAutoLoadmore(false);
-                    refreshLayout.setEnableLoadmore(false);
-                }
+
             }
 
             @Override
             public void onFailure(String message, int code) {
-                UIUtils.showToastSafe(getActivity(),message);
+                UIUtils.showToastSafe(getActivity(), message+":"+code);
             }
 
             @Override
             public void after() {
-                refreshLayout.finishLoadmore();
-                refreshLayout.finishRefresh();
+               swipeRefreshLayout.setRefreshing(false);
             }
         });
     }
@@ -141,8 +104,8 @@ public class StudentFragment extends BaseFragment implements AdapterView.OnItemC
 
     @Override
     public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-        Intent intent=new Intent(getActivity(),StudentDetailActivity.class);
-        intent.putExtra("student",students.get(position));
+        Intent intent = new Intent(getActivity(), StudentDetailActivity.class);
+        intent.putExtra("student", students.get(position));
         startActivity(intent);
     }
 }

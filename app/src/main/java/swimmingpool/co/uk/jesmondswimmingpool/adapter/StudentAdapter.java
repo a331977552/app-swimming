@@ -2,14 +2,10 @@ package swimmingpool.co.uk.jesmondswimmingpool.adapter;
 
 import android.app.Activity;
 import android.support.v7.widget.AppCompatTextView;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
 
 import java.util.List;
 
 import butterknife.BindView;
-import butterknife.ButterKnife;
 import swimmingpool.co.uk.jesmondswimmingpool.R;
 import swimmingpool.co.uk.jesmondswimmingpool.entity.Student;
 
@@ -17,21 +13,29 @@ import swimmingpool.co.uk.jesmondswimmingpool.entity.Student;
  * Created by cody on 2017/11/15.
  */
 
-public class StudentAdapter extends BaseAdapter<Student> {
+public class StudentAdapter extends DefaultAdpater<Student> {
 
+
+    private final Long courseId;
+    private Integer layoutId;
 
     public StudentAdapter(Activity appCompatActivity, List<Student> list) {
         super(appCompatActivity, list);
+        courseId=null;
+    }
+    public StudentAdapter(Long courseId,int layoutId,Activity appCompatActivity, List<Student> list) {
+        super(appCompatActivity, list);
+        this.courseId = courseId;
+        this.layoutId = layoutId;
     }
 
     @Override
-    public RecycleBaseHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-        StudentHolder studentHolder = new StudentHolder(LayoutInflater.from(getAppCompatActivity()).inflate(R.layout.item_home_student, parent, false));
-        return studentHolder;
+    protected BaseHolder getHolder() {
+        return new StudentHolder(getActivity());
     }
 
 
-    public class StudentHolder extends RecycleBaseHolder<Student> {
+    public class StudentHolder extends BaseHolder<Student> {
         @BindView(R.id.tv_name)
         AppCompatTextView tvName;
         @BindView(R.id.tv_level)
@@ -40,21 +44,29 @@ public class StudentAdapter extends BaseAdapter<Student> {
         AppCompatTextView tvPaid;
         @BindView(R.id.tv_parentPhoneNumber)
         AppCompatTextView tvParentPhoneNumber;
-        @BindView(R.id.tv_enrolmentDate)
-        AppCompatTextView tvEnrolmentDate;
-        public StudentHolder(View itemView) {
-            super(itemView);
-            ButterKnife.bind(this,itemView);
+
+        public StudentHolder(Activity activity) {
+            super(activity);
+
         }
 
+
         @Override
-        public void setData(Student student) {
+        public int initViewId() {
+            return R.layout.item_home_student;
+        }
+
+
+        @Override
+        protected void initData(Student student) {
+
+
 
             tvName.setText("Name: "+student.getName());
             tvLevel.setText("Level: "+student.getLevel());
             tvPaid.setText("Paid: " + (student.getPaid()==null?"unknow":student.getPaid()==1?"YES":"NO"));
-            tvEnrolmentDate.setText("REG DATE: "+student.getEnrolmentdate());
-            tvParentPhoneNumber.setText("Parent's Number: "+student.getParentphonenumber());
+
+            tvParentPhoneNumber.setText("Tel: "+student.getParentphonenumber());
         }
     }
 

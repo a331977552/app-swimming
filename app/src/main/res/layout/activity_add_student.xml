@@ -1,0 +1,187 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:scrollbars="none"
+    >
+    <android.support.v7.widget.LinearLayoutCompat
+        android:orientation="vertical"
+        android:padding="20dip"
+        xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        >
+        <android.support.design.widget.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dip"
+            app:counterMaxLength="64"
+            app:counterEnabled="true"
+
+            >
+
+            <EditText
+                android:id="@+id/et_name"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Course name"
+                android:imeActionId="6"
+                android:imeActionLabel="@string/next"
+                android:imeOptions="actionNext"
+                android:inputType="text"
+                android:maxLines="1"
+                android:textSize="18sp"
+                android:singleLine="true" />
+
+        </android.support.design.widget.TextInputLayout>
+        <android.support.design.widget.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dip"
+            app:counterMaxLength="128"
+            app:counterEnabled="true"
+
+            >
+
+            <EditText
+                android:id="@+id/et_address"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Address:"
+                android:imeActionId="6"
+                android:imeActionLabel="@string/next"
+                android:imeOptions="actionNext"
+                android:inputType="textMultiLine"
+                android:minLines="1"
+                android:textSize="18sp"
+                android:singleLine="true" />
+
+        </android.support.design.widget.TextInputLayout>
+        <android.support.design.widget.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dip"
+            app:counterMaxLength="30"
+            app:counterEnabled="true"
+
+            >
+
+            <EditText
+                android:id="@+id/et_parentNumber"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Parent number"
+                android:imeActionId="6"
+                android:imeActionLabel="@string/next"
+                android:imeOptions="actionNext"
+                android:inputType="text"
+                android:maxLines="1"
+                android:textSize="18sp"
+                android:singleLine="true" />
+
+        </android.support.design.widget.TextInputLayout>
+        <android.support.design.widget.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dip"
+            app:counterMaxLength="256"
+            app:counterEnabled="true"
+
+            >
+
+            <EditText
+                android:id="@+id/et_medical"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Medical condition"
+                android:imeActionId="6"
+                android:imeActionLabel="@string/next"
+                android:imeOptions="actionNext"
+                android:inputType="textMultiLine"
+                android:minLines="1"
+                android:textSize="18sp"
+                android:singleLine="true" />
+
+        </android.support.design.widget.TextInputLayout>
+
+
+        <android.support.design.widget.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dip"
+            app:counterMaxLength="30"
+            app:counterEnabled="true"
+
+            >
+
+            <EditText
+                android:id="@+id/et_level"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Level"
+                android:imeActionId="6"
+                android:imeActionLabel="@string/next"
+                android:imeOptions="actionNext"
+                android:inputType="numberDecimal"
+                android:maxLines="1"
+                android:textSize="18sp"
+                android:singleLine="true" />
+
+        </android.support.design.widget.TextInputLayout>
+
+        <android.support.v7.widget.AppCompatTextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Paid:"
+            android:textSize="18sp"
+            android:paddingTop="10dip"
+            android:paddingBottom="10dip"
+            />
+        <android.support.v7.widget.AppCompatTextView
+            android:id="@+id/tv_Paid"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="yes"
+            android:textColor="@color/black"
+            android:textSize="18sp"
+            android:paddingTop="10dip"
+            android:paddingBottom="10dip"
+            />
+        <android.support.design.widget.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dip"
+            app:counterMaxLength="256"
+            app:counterEnabled="true"
+
+            >
+
+            <EditText
+                android:id="@+id/et_note"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Note"
+                android:imeActionId="6"
+                android:imeActionLabel="@string/next"
+                android:imeOptions="actionNext"
+                android:inputType="textMultiLine"
+                android:maxLines="10"
+                android:textSize="18sp"
+                android:singleLine="true" />
+
+        </android.support.design.widget.TextInputLayout>
+
+        <Button
+            android:id="@+id/btn_confirm"
+            style="?android:textAppearanceSmall"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:text="@string/comfirm"
+            android:textColor="@android:color/white"
+            android:background="@color/colorPrimary"
+            android:textStyle="bold" />
+
+    </android.support.v7.widget.LinearLayoutCompat>
+</ScrollView>

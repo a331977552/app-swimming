@@ -4,6 +4,8 @@ import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.ViewParent;
+import android.widget.ListAdapter;
+import android.widget.ListView;
 
 public class ViewUtils {
 	/** 把自身从父View中移除 */

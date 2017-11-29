@@ -1,0 +1,266 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v7.widget.LinearLayoutCompat
+    android:orientation="vertical"
+    xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    >
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:paddingLeft="20dip"
+        android:gravity="center"
+        android:layout_gravity="center"
+        android:paddingRight="20dip"
+        android:paddingTop="10dip"
+        android:paddingBottom="10dip"
+        >
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="About this Course:"
+        android:textColor="@color/black"
+        android:textSize="25sp"
+        android:textStyle="bold"
+        android:id="@+id/aboutStudent"
+        app:layout_constraintBottom_toTopOf="@id/ll_content"
+        /> <android.support.v4.widget.Space
+        android:layout_width="0dip"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        />
+        <Button
+            android:id="@+id/btn_edit_course"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="edit"
+            android:textColor="@color/white"
+            android:textSize="14sp"
+            android:padding="0dip"
+            android:gravity="center"
+            android:minHeight="30dip"
+            android:background="@drawable/white_blue_stroke_btn_selector"
+            />
+    </LinearLayout>
+
+    <android.support.v7.widget.LinearLayoutCompat
+        android:elevation="5dip"
+        app:layout_constraintTop_toBottomOf="@id/aboutStudent"
+        android:id="@+id/ll_content"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/white"
+        android:orientation="vertical"
+        android:padding="10dip">
+
+        <android.support.v7.widget.LinearLayoutCompat
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:padding="10dip">
+
+            <android.support.v7.widget.AppCompatTextView
+                android:layout_width="0dip"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Course name:"
+                android:textColor="@color/dialog_titlecolor"
+                android:textSize="18sp" />
+
+            <android.support.v7.widget.AppCompatTextView
+                android:id="@+id/tv_name"
+                android:layout_width="0dip"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="aaaaa"
+                android:textColor="@color/black"
+                android:textSize="18sp" />
+
+        </android.support.v7.widget.LinearLayoutCompat>
+
+        <android.support.v7.widget.LinearLayoutCompat
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:padding="10dip">
+
+            <android.support.v7.widget.AppCompatTextView
+                android:layout_width="0dip"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Tutor:"
+                android:textColor="@color/dialog_titlecolor"
+                android:textSize="18sp" />
+
+            <android.support.v7.widget.AppCompatTextView
+                android:id="@+id/tv_tutor"
+                android:layout_width="0dip"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="aaaaa"
+                android:textColor="@color/black"
+                android:textSize="18sp" />
+
+        </android.support.v7.widget.LinearLayoutCompat>
+
+        <android.support.v7.widget.LinearLayoutCompat
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:padding="10dip">
+
+            <android.support.v7.widget.AppCompatTextView
+                android:layout_width="0dip"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Start:"
+                android:textColor="@color/dialog_titlecolor"
+                android:textSize="18sp" />
+
+            <android.support.v7.widget.AppCompatTextView
+                android:id="@+id/tv_start"
+                android:layout_width="0dip"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="aaaaa"
+                android:textColor="@color/black"
+                android:textSize="18sp" />
+
+        </android.support.v7.widget.LinearLayoutCompat>
+
+        <android.support.v7.widget.LinearLayoutCompat
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:padding="10dip">
+
+            <android.support.v7.widget.AppCompatTextView
+                android:layout_width="0dip"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="End:"
+                android:textColor="@color/dialog_titlecolor"
+                android:textSize="18sp" />
+
+            <android.support.v7.widget.AppCompatTextView
+                android:id="@+id/tv_end"
+                android:layout_width="0dip"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="aaaaa"
+                android:textColor="@color/black"
+                android:textSize="18sp" />
+
+        </android.support.v7.widget.LinearLayoutCompat>
+
+        <android.support.v7.widget.LinearLayoutCompat
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:padding="10dip">
+
+            <android.support.v7.widget.AppCompatTextView
+                android:layout_width="0dip"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Note:"
+                android:textColor="@color/dialog_titlecolor"
+                android:textSize="18sp" />
+
+            <android.support.v7.widget.AppCompatTextView
+                android:id="@+id/tv_note"
+                android:layout_width="0dip"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="aaaaa"
+                android:textColor="@color/black"
+                android:textSize="18sp" />
+
+        </android.support.v7.widget.LinearLayoutCompat>
+
+        <android.support.v7.widget.LinearLayoutCompat
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:visibility="gone"
+            android:padding="10dip">
+
+            <android.support.v7.widget.AppCompatTextView
+                android:layout_width="0dip"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Time:"
+                android:textColor="@color/dialog_titlecolor"
+                android:textSize="18sp" />
+
+            <android.support.v7.widget.AppCompatTextView
+                android:id="@+id/tv_time"
+                android:layout_width="0dip"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="aaaaa"
+                android:textColor="@color/black"
+                android:textSize="18sp" />
+
+        </android.support.v7.widget.LinearLayoutCompat>
+
+    </android.support.v7.widget.LinearLayoutCompat>
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal"
+    android:paddingLeft="20dip"
+    android:gravity="center"
+    android:layout_gravity="center"
+    android:paddingRight="20dip"
+    android:paddingTop="10dip"
+    android:paddingBottom="10dip"
+    >
+    <TextView
+        android:id="@+id/achievement"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Achievement:"
+        android:textColor="@color/black"
+        android:textSize="25sp"
+        android:textStyle="bold"
+        app:layout_constraintTop_toBottomOf="@id/ll_content" />
+    <android.support.v4.widget.Space
+        android:layout_width="0dip"
+        android:layout_height="wrap_content"
+
+        android:layout_weight="1"
+        />
+    <Button
+        android:id="@+id/btn_edit"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="edit"
+        android:textColor="@color/white"
+        android:textSize="14sp"
+        android:padding="0dip"
+
+        android:gravity="center"
+        android:minHeight="30dip"
+        android:background="@drawable/white_blue_stroke_btn_selector"
+        />
+</LinearLayout>
+    <swimmingpool.co.uk.jesmondswimmingpool.view.TagFlowLayout
+        android:background="@color/white"
+        android:elevation="5dip"
+        android:id="@+id/tf_flowlayout"
+        app:max_select="0"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:paddingLeft="20dp"
+        android:paddingRight="20dp"
+        android:paddingTop="10dp"
+        android:paddingBottom="20dip"
+        >
+    </swimmingpool.co.uk.jesmondswimmingpool.view.TagFlowLayout>
+
+
+
+</android.support.v7.widget.LinearLayoutCompat>

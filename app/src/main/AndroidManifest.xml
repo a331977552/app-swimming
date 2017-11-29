@@ -34,7 +34,11 @@
             android:label="@string/title_activity_main"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
-            android:name=".activity.AttendanceActivity"
+            android:name=".activity.CourseListActivity"
+            android:label="@string/title_activity_main"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".activity.AttendanceListActivity"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name=".activity.EditStudentActivity"
@@ -50,10 +54,23 @@
         <activity
             android:name=".activity.StudentDetailActivity"
             android:label="@string/title_activity_student_detail"
-            android:theme="@style/AppTheme.NoActionBar"></activity>
-        <activity android:name=".fragment.AddTutorActivity"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".fragment.AddTutorActivity"
             android:theme="@style/AppTheme.NoActionBar"
             />
+        <activity android:name=".activity.CourseDetailsActivity"
+            android:theme="@style/AppTheme.NoActionBar"
+
+            ></activity>
+        <activity android:name=".activity.EditAchievementActivity"
+            android:theme="@style/AppTheme.NoActionBar"
+
+            ></activity>
+        <activity android:name=".activity.EditCourseActivity"
+            android:theme="@style/AppTheme.NoActionBar"
+
+            ></activity>
     </application>
 
 </manifest>

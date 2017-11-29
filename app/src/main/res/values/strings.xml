@@ -26,10 +26,10 @@
     <string name="prompt_userName">Username</string>
     <string name="title_activity_main2">Main2Activity</string>
     <string name="title_activity_student_detail">StudentDetail</string>
-    <string name="next" >next</string>
+    <string name="next">next</string>
     <string name="name">Name</string>
     <string name="username">Username</string>
-    <string name="comfirm_password" >Confirm password</string>
+    <string name="comfirm_password">Confirm password</string>
     <string name="address">Address</string>
     <string name="note">Note</string>
     <string name="phoneNumber">PhoneNumber</string>
@@ -38,4 +38,8 @@
     <string name="error_tooshort_password">password is too short</string>
     <string name="error_different_password">different from password</string>
     <string name="please_wait">please wait...</string>
+    <string name="Complete">complete</string>
+    <string name="Error">error</string>
+    <string name="Processing">processing</string>
+    <string name="Upload" >Sign In</string>
 </resources>

@@ -1,3 +1,4 @@
+/*
 package swimmingpool.co.uk.jesmondswimmingpool.entity;
 
 import java.util.List;
@@ -6,13 +7,17 @@ public class PageBean<T> {
 
 	private Integer currentPage;
 	private Integer totalPage;
-	/**
+	*/
+/**
 	 * this.currentPage*this.pageSize;
-	 */
+	 *//*
+
 	private Integer startCount;
-	/**
+	*/
+/**
 	 * 页面的起始数字和结束数字
-	 */
+	 *//*
+
 	private Integer beginNumber;
 	public Integer getBeginNumber() {
 		return beginNumber;
@@ -55,9 +60,11 @@ public class PageBean<T> {
 		
 		if(currentPage==null)
 			this.currentPage=0;
-	/*	System.out.println(this.currentPage  );
+	*/
+/*	System.out.println(this.currentPage  );
 		System.out.println(this.totalPage  );
-		System.out.println(this.totalCount   );*/
+		System.out.println(this.totalCount   );*//*
+
 		
 		if(	this.currentPage>=totalPage)
 			this.currentPage=(this.totalPage-1);
@@ -120,3 +127,4 @@ public class PageBean<T> {
 	
 	
 }
+*/

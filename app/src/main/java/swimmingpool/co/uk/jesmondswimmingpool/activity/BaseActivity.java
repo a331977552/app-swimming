@@ -1,33 +1,31 @@
 package swimmingpool.co.uk.jesmondswimmingpool.activity;
 
 import android.os.Bundle;
-import android.os.PersistableBundle;
 import android.support.annotation.Nullable;
-import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.view.ViewGroup;
-import android.view.ViewParent;
 
-import butterknife.BindView;
-import butterknife.ButterKnife;
+import me.imid.swipebacklayout.lib.SwipeBackLayout;
+import me.imid.swipebacklayout.lib.app.SwipeBackActivity;
 import swimmingpool.co.uk.jesmondswimmingpool.R;
 
 /**
  * Created by cody on 2017/11/14.
  */
 
-public  abstract  class BaseActivity  extends AppCompatActivity {
+public  abstract  class BaseActivity  extends SwipeBackActivity{
     Toolbar toolbar;
     ViewGroup parent;
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         super.setContentView(R.layout.activity_base);
-        toolbar=  findViewById(R.id.toolbar);
+        toolbar= (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayShowHomeEnabled(true);
-         parent = findViewById(R.id.parent);
+         parent = (ViewGroup) findViewById(R.id.parent);
+         getSwipeBackLayout().setEdgeTrackingEnabled(SwipeBackLayout.EDGE_LEFT);
         toolbar.setNavigationOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

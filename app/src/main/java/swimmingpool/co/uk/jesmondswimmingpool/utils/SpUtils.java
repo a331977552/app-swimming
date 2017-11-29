@@ -2,7 +2,6 @@ package swimmingpool.co.uk.jesmondswimmingpool.utils;
 
 import android.content.Context;
 import android.content.SharedPreferences;
-import android.support.v4.content.SharedPreferencesCompat;
 
 /**
  * Created by cody on 2017/11/13.
@@ -55,6 +54,10 @@ public class SpUtils {
     }
     public static Boolean getBoolean(String name){
         return sp.getBoolean(name,false);
+
+    }
+    public static Boolean getBoolean(String name,boolean defau){
+        return sp.getBoolean(name,defau);
 
     }
     public static Long getLong(String name){

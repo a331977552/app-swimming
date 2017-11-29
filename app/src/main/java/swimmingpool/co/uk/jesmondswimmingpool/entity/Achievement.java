@@ -9,6 +9,10 @@ public class Achievement {
 
     private String achievement;
 
+    private Long courseid;
+
+    private Long coursename;
+
     public Long getId() {
         return id;
     }
@@ -39,5 +43,21 @@ public class Achievement {
 
     public void setAchievement(String achievement) {
         this.achievement = achievement == null ? null : achievement.trim();
+    }
+
+    public Long getCourseid() {
+        return courseid;
+    }
+
+    public void setCourseid(Long courseid) {
+        this.courseid = courseid;
+    }
+
+    public Long getCoursename() {
+        return coursename;
+    }
+
+    public void setCoursename(Long coursename) {
+        this.coursename = coursename;
     }
 }
