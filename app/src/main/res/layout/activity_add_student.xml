@@ -25,7 +25,7 @@
                 android:id="@+id/et_name"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="Course name"
+                android:hint="Student name"
                 android:imeActionId="6"
                 android:imeActionLabel="@string/next"
                 android:imeOptions="actionNext"
@@ -75,7 +75,7 @@
                 android:imeActionId="6"
                 android:imeActionLabel="@string/next"
                 android:imeOptions="actionNext"
-                android:inputType="text"
+                android:inputType="phone"
                 android:maxLines="1"
                 android:textSize="18sp"
                 android:singleLine="true" />

@@ -6,314 +6,339 @@
     android:layout_height="match_parent"
     android:background="@color/window_background"
     tools:context="swimmingpool.co.uk.jesmondswimmingpool.activity.StudentDetailActivity">
+
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent">
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-        >
+
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:paddingLeft="20dip"
-            android:gravity="center"
-            android:layout_gravity="center"
-            android:paddingRight="20dip"
-            android:paddingTop="10dip"
-            android:paddingBottom="10dip"
-            >
-        <TextView
-            android:id="@+id/aboutStudent"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:orientation="vertical">
 
-            android:text="About this Student:"
-            android:textColor="@color/black"
-            android:textSize="25sp"
-            android:textStyle="bold"
-            app:layout_constraintBottom_toTopOf="@id/ll_content" />
-            <android.support.v4.widget.Space
-                android:layout_width="0dip"
+            <LinearLayout
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_weight="1"
-                />
-        <Button
-            android:id="@+id/btn_edit"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="edit"
-            android:textColor="@color/white"
-            android:textSize="14sp"
-            android:padding="0dip"
-            android:gravity="center"
-            android:minHeight="30dip"
-            android:background="@drawable/white_blue_stroke_btn_selector"
-            />
+                android:layout_gravity="center"
+                android:gravity="center"
+                android:orientation="horizontal"
+                android:paddingBottom="10dip"
+                android:paddingLeft="20dip"
+                android:paddingRight="20dip"
+                android:paddingTop="10dip">
+
+                <TextView
+                    android:id="@+id/aboutStudent"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+
+                    android:text="About this Student:"
+                    android:textColor="@color/black"
+                    android:textSize="25sp"
+                    android:textStyle="bold"
+                    app:layout_constraintBottom_toTopOf="@id/ll_content" />
+
+                <android.support.v4.widget.Space
+                    android:layout_width="0dip"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1" />
+
+                <Button
+                    android:id="@+id/btn_edit"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/white_blue_stroke_btn_selector"
+                    android:gravity="center"
+                    android:minHeight="30dip"
+                    android:padding="0dip"
+                    android:text="edit"
+                    android:textColor="@color/white"
+                    android:textSize="14sp" />
+            </LinearLayout>
+
+            <android.support.v7.widget.LinearLayoutCompat
+                android:id="@+id/ll_content"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/white"
+                android:elevation="5dip"
+                android:orientation="vertical"
+                android:padding="10dip"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/aboutStudent">
+
+                <android.support.v7.widget.LinearLayoutCompat
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:padding="10dip">
+
+                    <android.support.v7.widget.AppCompatTextView
+                        android:layout_width="0dip"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="Student's name:"
+                        android:textColor="@color/dialog_titlecolor"
+                        android:textSize="18sp" />
+
+                    <android.support.v7.widget.AppCompatTextView
+                        android:id="@+id/tv_name"
+                        android:layout_width="0dip"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="aaaaa"
+                        android:textColor="@color/black"
+                        android:textSize="18sp" />
+
+                </android.support.v7.widget.LinearLayoutCompat>
+
+                <android.support.v7.widget.LinearLayoutCompat
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:padding="10dip">
+
+                    <android.support.v7.widget.AppCompatTextView
+                        android:layout_width="0dip"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="Address:"
+                        android:textColor="@color/dialog_titlecolor"
+                        android:textSize="18sp" />
+
+                    <android.support.v7.widget.AppCompatTextView
+                        android:id="@+id/tv_address"
+                        android:layout_width="0dip"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="aaaaa"
+                        android:textColor="@color/black"
+                        android:textSize="18sp" />
+
+                </android.support.v7.widget.LinearLayoutCompat>
+
+                <android.support.v7.widget.LinearLayoutCompat
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:padding="10dip">
+
+                    <android.support.v7.widget.AppCompatTextView
+                        android:layout_width="0dip"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="Parent Number:"
+                        android:textColor="@color/dialog_titlecolor"
+                        android:textSize="18sp" />
+
+                    <android.support.v7.widget.AppCompatTextView
+                        android:id="@+id/tv_parentPhoneNumber"
+                        android:layout_width="0dip"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="aaaaa"
+                        android:textColor="@color/black"
+                        android:textSize="18sp" />
+
+                </android.support.v7.widget.LinearLayoutCompat>
+
+                <android.support.v7.widget.LinearLayoutCompat
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:padding="10dip">
+
+                    <android.support.v7.widget.AppCompatTextView
+                        android:layout_width="0dip"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="Medical condition:"
+                        android:textColor="@color/dialog_titlecolor"
+                        android:textSize="18sp" />
+
+                    <android.support.v7.widget.AppCompatTextView
+                        android:id="@+id/tv_medical"
+                        android:layout_width="0dip"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="aaaaa"
+                        android:textColor="@color/black"
+                        android:textSize="18sp" />
+
+                </android.support.v7.widget.LinearLayoutCompat>
+
+                <android.support.v7.widget.LinearLayoutCompat
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:padding="10dip">
+
+                    <android.support.v7.widget.AppCompatTextView
+                        android:layout_width="0dip"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="Note:"
+                        android:textColor="@color/dialog_titlecolor"
+                        android:textSize="18sp" />
+
+                    <android.support.v7.widget.AppCompatTextView
+                        android:id="@+id/tv_note"
+                        android:layout_width="0dip"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="aaaaa"
+                        android:textColor="@color/black"
+                        android:textSize="18sp" />
+
+                </android.support.v7.widget.LinearLayoutCompat>
+
+                <android.support.v7.widget.LinearLayoutCompat
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:padding="10dip">
+
+                    <android.support.v7.widget.AppCompatTextView
+                        android:layout_width="0dip"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="Registration date:"
+                        android:textColor="@color/dialog_titlecolor"
+                        android:textSize="18sp" />
+
+                    <android.support.v7.widget.AppCompatTextView
+                        android:id="@+id/tv_registration"
+                        android:layout_width="0dip"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="aaaaa"
+                        android:textColor="@color/black"
+                        android:textSize="18sp" />
+
+                </android.support.v7.widget.LinearLayoutCompat>
+
+                <android.support.v7.widget.LinearLayoutCompat
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:padding="10dip">
+
+                    <android.support.v7.widget.AppCompatTextView
+                        android:layout_width="0dip"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="Level:"
+                        android:textColor="@color/dialog_titlecolor"
+                        android:textSize="18sp" />
+
+                    <android.support.v7.widget.AppCompatTextView
+                        android:id="@+id/tv_level"
+                        android:layout_width="0dip"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="12"
+                        android:textColor="@color/black"
+                        android:textSize="18sp" />
+
+                    <android.support.v7.widget.AppCompatTextView
+                        android:layout_width="0dip"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="Paid:"
+                        android:textColor="@color/dialog_titlecolor"
+                        android:textSize="18sp" />
+
+                    <android.support.v7.widget.AppCompatTextView
+                        android:id="@+id/tv_paid"
+                        android:layout_width="0dip"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="YES"
+                        android:textColor="@color/black"
+                        android:textSize="18sp" />
+
+                </android.support.v7.widget.LinearLayoutCompat>
+
+            </android.support.v7.widget.LinearLayoutCompat>
+
+            <android.support.v7.widget.LinearLayoutCompat
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:paddingBottom="10dip"
+                android:paddingLeft="20dip"
+                android:paddingRight="20dip"
+                android:paddingTop="10dip"
+                android:gravity="center"
+                >
+
+                <TextView
+
+                    android:id="@+id/onGoingCourse"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Ongoing Course:"
+                    android:textColor="@color/black"
+                    android:textSize="25sp"
+                    android:textStyle="bold"
+                    app:layout_constraintTop_toBottomOf="@id/ll_content" />
+
+                <android.support.v4.widget.Space
+                    android:layout_width="0dip"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1" />
+
+                <Button
+                    android:id="@+id/btn_choose_course"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/white_blue_stroke_btn_selector"
+                    android:gravity="center"
+                    android:minHeight="30dip"
+                    android:padding="0dip"
+                    android:text="choose"
+                    android:textColor="@color/white"
+                    android:textSize="14sp" />
+            </android.support.v7.widget.LinearLayoutCompat>
+
+            <android.support.v7.widget.LinearLayoutCompat
+                android:id="@+id/ll_courses"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:elevation="5dip"
+                android:orientation="vertical">
+
+
+            </android.support.v7.widget.LinearLayoutCompat>
+
+            <TextView
+
+                android:id="@+id/achievement"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingBottom="10dip"
+                android:paddingLeft="20dip"
+                android:paddingRight="20dip"
+                android:text="Achievement:"
+                android:textColor="@color/black"
+                android:textSize="25sp"
+                android:textStyle="bold"
+                app:layout_constraintTop_toBottomOf="@id/ll_content" />
+
+            <com.zhy.view.flowlayout.TagFlowLayout
+                android:id="@+id/tf_flowlayout"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/white"
+                android:elevation="5dip"
+                android:paddingBottom="20dip"
+                android:paddingLeft="20dp"
+                android:paddingRight="20dp"
+                android:paddingTop="10dp"
+                app:max_select="0"></com.zhy.view.flowlayout.TagFlowLayout>
+
+
         </LinearLayout>
-        <android.support.v7.widget.LinearLayoutCompat
-            android:elevation="5dip"
-            app:layout_constraintTop_toBottomOf="@id/aboutStudent"
-            android:id="@+id/ll_content"
-            app:layout_constraintBottom_toBottomOf="parent"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:background="@color/white"
-            android:orientation="vertical"
-            android:padding="10dip">
-
-            <android.support.v7.widget.LinearLayoutCompat
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:padding="10dip">
-
-                <android.support.v7.widget.AppCompatTextView
-                    android:layout_width="0dip"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:text="Student's name:"
-                    android:textColor="@color/dialog_titlecolor"
-                    android:textSize="18sp" />
-
-                <android.support.v7.widget.AppCompatTextView
-                    android:id="@+id/tv_name"
-                    android:layout_width="0dip"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:text="aaaaa"
-                    android:textColor="@color/black"
-                    android:textSize="18sp" />
-
-            </android.support.v7.widget.LinearLayoutCompat>
-
-            <android.support.v7.widget.LinearLayoutCompat
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:padding="10dip">
-
-                <android.support.v7.widget.AppCompatTextView
-                    android:layout_width="0dip"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:text="Address:"
-                    android:textColor="@color/dialog_titlecolor"
-                    android:textSize="18sp" />
-
-                <android.support.v7.widget.AppCompatTextView
-                    android:id="@+id/tv_address"
-                    android:layout_width="0dip"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:text="aaaaa"
-                    android:textColor="@color/black"
-                    android:textSize="18sp" />
-
-            </android.support.v7.widget.LinearLayoutCompat>
-
-            <android.support.v7.widget.LinearLayoutCompat
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:padding="10dip">
-
-                <android.support.v7.widget.AppCompatTextView
-                    android:layout_width="0dip"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:text="Parent Number:"
-                    android:textColor="@color/dialog_titlecolor"
-                    android:textSize="18sp" />
-
-                <android.support.v7.widget.AppCompatTextView
-                    android:id="@+id/tv_parentPhoneNumber"
-                    android:layout_width="0dip"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:text="aaaaa"
-                    android:textColor="@color/black"
-                    android:textSize="18sp" />
-
-            </android.support.v7.widget.LinearLayoutCompat>
-
-            <android.support.v7.widget.LinearLayoutCompat
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:padding="10dip">
-
-                <android.support.v7.widget.AppCompatTextView
-                    android:layout_width="0dip"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:text="Medical condition:"
-                    android:textColor="@color/dialog_titlecolor"
-                    android:textSize="18sp" />
-
-                <android.support.v7.widget.AppCompatTextView
-                    android:id="@+id/tv_medical"
-                    android:layout_width="0dip"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:text="aaaaa"
-                    android:textColor="@color/black"
-                    android:textSize="18sp" />
-
-            </android.support.v7.widget.LinearLayoutCompat>
-
-            <android.support.v7.widget.LinearLayoutCompat
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:padding="10dip">
-
-                <android.support.v7.widget.AppCompatTextView
-                    android:layout_width="0dip"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:text="Note:"
-                    android:textColor="@color/dialog_titlecolor"
-                    android:textSize="18sp" />
-
-                <android.support.v7.widget.AppCompatTextView
-                    android:id="@+id/tv_note"
-                    android:layout_width="0dip"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:text="aaaaa"
-                    android:textColor="@color/black"
-                    android:textSize="18sp" />
-
-            </android.support.v7.widget.LinearLayoutCompat>
-
-            <android.support.v7.widget.LinearLayoutCompat
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:padding="10dip">
-
-                <android.support.v7.widget.AppCompatTextView
-                    android:layout_width="0dip"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:text="Registration date:"
-                    android:textColor="@color/dialog_titlecolor"
-                    android:textSize="18sp" />
-
-                <android.support.v7.widget.AppCompatTextView
-                    android:id="@+id/tv_registration"
-                    android:layout_width="0dip"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:text="aaaaa"
-                    android:textColor="@color/black"
-                    android:textSize="18sp" />
-
-            </android.support.v7.widget.LinearLayoutCompat>
-
-            <android.support.v7.widget.LinearLayoutCompat
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:padding="10dip">
-
-                <android.support.v7.widget.AppCompatTextView
-                    android:layout_width="0dip"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:text="Level:"
-                    android:textColor="@color/dialog_titlecolor"
-                    android:textSize="18sp" />
-
-                <android.support.v7.widget.AppCompatTextView
-                    android:id="@+id/tv_level"
-                    android:layout_width="0dip"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:text="12"
-                    android:textColor="@color/black"
-                    android:textSize="18sp" />
-
-                <android.support.v7.widget.AppCompatTextView
-                    android:layout_width="0dip"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:text="Paid:"
-                    android:textColor="@color/dialog_titlecolor"
-                    android:textSize="18sp" />
-
-                <android.support.v7.widget.AppCompatTextView
-                    android:id="@+id/tv_paid"
-                    android:layout_width="0dip"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:text="YES"
-                    android:textColor="@color/black"
-                    android:textSize="18sp" />
-
-            </android.support.v7.widget.LinearLayoutCompat>
-
-        </android.support.v7.widget.LinearLayoutCompat>
-
-        <TextView
-
-            android:paddingLeft="20dip"
-            android:paddingRight="20dip"
-            android:paddingTop="10dip"
-            android:paddingBottom="10dip"
-
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Ongoing Course:"
-            android:textColor="@color/black"
-            android:textSize="25sp"
-            android:textStyle="bold"
-            android:id="@+id/onGoingCourse"
-            app:layout_constraintTop_toBottomOf="@id/ll_content"
-            />
-        <android.support.v7.widget.LinearLayoutCompat
-            android:elevation="5dip"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:id="@+id/ll_courses"
-            android:orientation="vertical"
-            >
-
-
-        </android.support.v7.widget.LinearLayoutCompat>
-
-        <TextView
-
-            android:id="@+id/achievement"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:paddingLeft="20dip"
-            android:paddingRight="20dip"
-            android:paddingBottom="10dip"
-            android:text="Achievement:"
-            android:textColor="@color/black"
-            android:textSize="25sp"
-            android:textStyle="bold"
-            app:layout_constraintTop_toBottomOf="@id/ll_content" />
-        <com.zhy.view.flowlayout.TagFlowLayout
-            android:background="@color/white"
-            android:elevation="5dip"
-            android:id="@+id/tf_flowlayout"
-            app:max_select="0"
-            android:layout_width="fill_parent"
-            android:layout_height="wrap_content"
-            android:paddingLeft="20dp"
-            android:paddingRight="20dp"
-            android:paddingTop="10dp"
-            android:paddingBottom="20dip"
-            >
-        </com.zhy.view.flowlayout.TagFlowLayout>
-
-
-    </LinearLayout>
     </ScrollView>
 
 

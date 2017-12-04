@@ -90,7 +90,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:tint="@color/colorPrimary"
-                app:srcCompat="@drawable/ic_delete_forever_black_24dp" />
+                app:srcCompat="@drawable/ic_group_black_24dp" />
 
 
             <android.support.v4.widget.Space
@@ -103,7 +103,7 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="7"
                 android:padding="10dip"
-                android:text="Delete course"
+                android:text="All courses"
 
                 android:textSize="@dimen/normal_font_size" />
 
@@ -175,6 +175,7 @@
         </android.support.v7.widget.LinearLayoutCompat>
 
         <android.support.v7.widget.LinearLayoutCompat
+            android:visibility="gone"
             android:id="@+id/ll_editStudent"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -195,7 +196,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:tint="@color/colorPrimary"
-                app:srcCompat="@drawable/ic_delete_forever_black_24dp" />
+                app:srcCompat="@drawable/ic_group_black_24dp" />
 
 
             <android.support.v4.widget.Space
@@ -208,7 +209,7 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="7"
                 android:padding="10dip"
-                android:text="Delete Student"
+                android:text="All Students"
                 android:textSize="@dimen/normal_font_size" />
 
             <android.support.v7.widget.AppCompatImageView

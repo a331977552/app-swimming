@@ -7,7 +7,6 @@ import java.util.List;
 
 import butterknife.BindView;
 import swimmingpool.co.uk.jesmondswimmingpool.R;
-import swimmingpool.co.uk.jesmondswimmingpool.activity.CourseListActivity;
 import swimmingpool.co.uk.jesmondswimmingpool.entity.Course;
 
 /**
@@ -15,7 +14,7 @@ import swimmingpool.co.uk.jesmondswimmingpool.entity.Course;
  */
 
 public class CourseListAdapter extends DefaultAdpater<Course> {
-    public CourseListAdapter(CourseListActivity courseListActivity, List<Course> bean) {
+    public CourseListAdapter(Activity courseListActivity, List<Course> bean) {
         super(courseListActivity, bean);
     }
 
@@ -26,12 +25,18 @@ public class CourseListAdapter extends DefaultAdpater<Course> {
 
     public class CourseHolder extends BaseHolder<Course> {
 
-        @BindView(R.id.tv_title)
+      /*  @BindView(R.id.tv_title2)
         AppCompatTextView tvTitle;
-        @BindView(R.id.tv_node)
+        @BindView(R.id.tv_note2)
         AppCompatTextView tvNode;
+        @BindView(R.id.tv_tutorName2)
+        AppCompatTextView tv_tutorName;*/
+        @BindView(R.id.tv_name)
+        AppCompatTextView tvName;
+        @BindView(R.id.tv_id)
+        AppCompatTextView tvId;
         @BindView(R.id.tv_tutorName)
-        AppCompatTextView tv_tutorName;
+        AppCompatTextView tvTutorName;
 
         public CourseHolder(Activity activity) {
             super(activity);
@@ -39,14 +44,14 @@ public class CourseListAdapter extends DefaultAdpater<Course> {
 
         @Override
         public int initViewId() {
-            return R.layout.item_course;
+            return R.layout.item_attendance;
         }
 
         @Override
         protected void initData(Course course) {
-            tvTitle.setText(course.getName());
-            tvNode.setText(course.getNote());
-            tv_tutorName.setText("tutor: " +course.getTutorname());
+            tvName.setText(course.getName());
+            tvTutorName.setText(course.getNote());
+            tvId.setText("tutor: " + course.getTutorname());
         }
     }
 }

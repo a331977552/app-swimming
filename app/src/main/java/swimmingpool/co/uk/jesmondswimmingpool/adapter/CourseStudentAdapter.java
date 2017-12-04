@@ -130,7 +130,7 @@ public class CourseStudentAdapter extends DefaultAdpater<StudentVo> {
 
             }
             tvName.setText("Name: " + student.getStudent().getName());
-            tvLevel.setText("Level: " + student.getStudent().getLevel());
+            tvLevel.setText("ID: " + student.getStudent().getId());
             tvPaid.setText("Paid: " + (student.getStudent().getPaid() == null ? "unknow" : student.getStudent().getPaid() == 1 ? "YES" : "NO"));
 
             tvParentPhoneNumber.setText("Tel: " + student.getStudent().getParentphonenumber());

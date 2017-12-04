@@ -11,7 +11,30 @@ public class CourseVo {
 	public Long getStudentId() {
 		return studentId;
 	}
+	public void setStudentId(Long studentId) {
+		this.studentId = studentId;
+	}
+	private PageBean pageBean;
+
+
+	public PageBean getPageBean() {
+		return pageBean;
+	}
+	public void setPageBean(PageBean pageBean) {
+		this.pageBean = pageBean;
+	}
+	private Course course;
+	private List<Courseitem> courseitems;
+	public List<Courseitem> getCourseitems() {
+		return courseitems;
+	}
 	private Boolean includingChose;
+	public Boolean getIncludingFishished() {
+		return includingFishished;
+	}
+	public Boolean isIncludingChose() {
+		return includingChose;
+	}
 	public Boolean getIncludingChose() {
 		return includingChose;
 	}
@@ -19,9 +42,6 @@ public class CourseVo {
 		this.includingChose = includingChose;
 	}
 
-	public void setStudentId(Long studentId) {
-		this.studentId = studentId;
-	}
 	private Boolean includingFishished;
 	public Boolean isIncludingFishished() {
 		return includingFishished;
@@ -29,15 +49,11 @@ public class CourseVo {
 	public void setIncludingFishished(Boolean includingFishished) {
 		this.includingFishished = includingFishished;
 	}
-	private Course course;
-	private List<Courseitem> courseitems;
-	public List<Courseitem> getCourseitems() {
-		return courseitems;
-	}
 	public void setCourseitems(List<Courseitem> courseitems) {
 		this.courseitems = courseitems;
 	}
 	private Date day;
+	private List<Course> courseList;
 	public Course getCourse() {
 		return course;
 	}
@@ -50,6 +66,14 @@ public class CourseVo {
 	public void setCourse(Course course) {
 		this.course = course;
 	}
-	
-	
+	public void setCourseList(List<Course> courseList) {
+		this.courseList = courseList;
+
+	}
+	public List<Course> getCourseList() {
+		return courseList;
+	}
+
+
+
 }

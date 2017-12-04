@@ -42,6 +42,8 @@ public class StudentAdapter extends DefaultAdpater<Student> {
         AppCompatTextView tvLevel;
         @BindView(R.id.tv_paid)
         AppCompatTextView tvPaid;
+        @BindView(R.id.tv_id)
+        AppCompatTextView tv_id;
         @BindView(R.id.tv_parentPhoneNumber)
         AppCompatTextView tvParentPhoneNumber;
 
@@ -61,7 +63,7 @@ public class StudentAdapter extends DefaultAdpater<Student> {
         protected void initData(Student student) {
 
 
-
+            tv_id.setText("ID: "+student.getId());
             tvName.setText("Name: "+student.getName());
             tvLevel.setText("Level: "+student.getLevel());
             tvPaid.setText("Paid: " + (student.getPaid()==null?"unknow":student.getPaid()==1?"YES":"NO"));

@@ -15,4 +15,5 @@
         android:divider="@color/white_btn_pressed"
         android:dividerHeight="0.5dip"
         ></android.support.v7.widget.ListViewCompat>
+
 </FrameLayout>

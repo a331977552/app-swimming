@@ -3,6 +3,7 @@ package swimmingpool.co.uk.jesmondswimmingpool.activity;
 import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
+import android.support.v4.view.ViewCompat;
 import android.support.v7.widget.AppCompatTextView;
 import android.support.v7.widget.CardView;
 import android.support.v7.widget.LinearLayoutCompat;
@@ -73,6 +74,10 @@ public class StudentDetailActivity extends BaseActivity {
     TextView onGoingCourse;
     @BindView(R.id.achievement)
     TextView achievement;
+    @BindView(R.id.aboutStudent)
+    TextView aboutStudent;
+    @BindView(R.id.btn_choose_course)
+    Button btnChooseCourse;
 
     private Student student;
 
@@ -109,14 +114,14 @@ public class StudentDetailActivity extends BaseActivity {
             public void onSuccess(CommonEntity<List<Achievement>> listCommonEntity) {
 
                 tfFlowlayout.setAdapter(new TagAdapter<Achievement>(listCommonEntity.getBean()) {
-
                     @Override
                     public View getView(FlowLayout parent, int position, Achievement achievement) {
                         CardView inflate = (CardView) LayoutInflater.from(StudentDetailActivity.this).inflate(R.layout.item_achievement, null);
                         TextView textView = inflate.findViewById(R.id.tv_ach);
                         ColorM colorM = randomColor();
-
-                        inflate.setBackgroundColor(colorM.color);
+                        ViewCompat.setElevation(inflate,10);
+                        inflate.setCardBackgroundColor(colorM.color);
+                        inflate.setCardElevation(10);
                         textView.setText(achievement.getAchievement());
                         return inflate;
                     }
@@ -206,8 +211,8 @@ public class StudentDetailActivity extends BaseActivity {
     @SuppressWarnings("unused")
     @Subscribe
     public void onStudentChange(UpdateStudentEvent courseChangeEvent) {
-        student=courseChangeEvent.getBean();
-        tvPaid.setText(student.getPaid()==0?"NO":"YES");
+        student = courseChangeEvent.getBean();
+        tvPaid.setText(student.getPaid() == 0 ? "NO" : "YES");
         tvNote.setText(student.getNote());
         tvName.setText(student.getName());
         tvMedical.setText(student.getMedicalcondition());
@@ -218,11 +223,31 @@ public class StudentDetailActivity extends BaseActivity {
 
     @OnClick(R.id.btn_edit)
     public void onViewClicked() {
-        Intent intent=new Intent(this,EditStudentActivity.class);
-        intent.putExtra("student",student);
+        Intent intent = new Intent(this, EditStudentActivity.class);
+        intent.putExtra("student", student);
         startActivity(intent);
     }
 
+    @OnClick(R.id.btn_choose_course)
+    public void onViewClicked2() {
+
+        Intent intent = new Intent(this, CourseChosenActivity.class);
+        intent.putExtra("student", student);
+        startActivity(intent);
+
+    }
+
+    @SuppressWarnings("unused")
+    @Subscribe
+    public void onCourseChooseEvent(CourseChooseEvent courseChooseEvent){
+        StudentCourse studentCourse=new StudentCourse();
+        studentCourse.setCourse(courseChooseEvent.getTag());
+        studentCourse.setStudent(student);
+        CourseOnGoingAdapter.CourseOnGoingHolder courseOnGoingHolder = new CourseOnGoingAdapter.CourseOnGoingHolder(StudentDetailActivity.this);
+        courseOnGoingHolder.setData(studentCourse);
+        ll_courses.addView(courseOnGoingHolder.getRootView());
+
+    }
     public class ColorM {
         int color;
         int reversColor;

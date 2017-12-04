@@ -1,56 +1,49 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.v7.widget.LinearLayoutCompat
-    xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:orientation="vertical"
-    android:padding="10dip"
-    android:background="@drawable/list_selector"
+<android.support.constraint.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:padding="15dip"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@drawable/bg_btn_selector"
     >
-    <LinearLayout
-        android:orientation="horizontal"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="10dip"
-        >
-    <android.support.v7.widget.AppCompatTextView
 
+    <android.support.v7.widget.AppCompatTextView
+        android:id="@+id/tv_title2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/tv_title"
-        android:text="TEST"
-        android:textStyle="bold"
+        android:text="Name: Tom Cat"
+        android:textColor="@color/black"
         android:textSize="16sp"
-        android:textColor="@color/black"
-        android:capitalize="sentences"
-        android:inputType="textCapSentences"
-        />
-        <android.support.v4.widget.Space
-            android:layout_width="0dip"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            />
-        <android.support.v7.widget.AppCompatTextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:id="@+id/tv_tutorName"
-            android:text="TEST"
-            android:capitalize="words"
-            android:inputType="textCapWords"
-            android:textSize="16sp"
-            android:textColor="@color/black"
-            />
+        android:textStyle="bold"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
-    </LinearLayout>
     <android.support.v7.widget.AppCompatTextView
-        android:layout_width="match_parent"
+        android:id="@+id/tv_tutorName2"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/tv_node"
-        android:capitalize="sentences"
-        android:inputType="textCapSentences"
-        android:text="nodevnodenodenodenodenode"
-        android:textSize="14sp"
-        android:textColor="@color/black"
 
-        />
+        android:text="Level: 1"
+        android:textSize="12sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/tv_name"
+        app:layout_constraintTop_toTopOf="parent" />
 
-</android.support.v7.widget.LinearLayoutCompat>
+    <android.support.v7.widget.AppCompatTextView
+        android:id="@+id/tv_note2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dip"
+        android:text="Paid: yes"
+        android:textSize="12sp"
+        android:inputType="textMultiLine"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tv_title2" />
+
+
+
+
+</android.support.constraint.ConstraintLayout>

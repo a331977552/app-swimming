@@ -1,18 +1,11 @@
-<?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     tools:context="com.example.administrator.search_on_toolbar.SearchOnToolBarActivity">
-<item
-        android:id="@+id/action_settings"
-        android:orderInCategory="100"
-        android:title="Search Course"
-        app:showAsAction="ifRoom"
-        android:icon="@drawable/ic_search_black_24dp"
-        android:iconTint="@color/white"
+    <item
+        android:id="@+id/ab_search"
+        android:orderInCategory="80"
+        android:title="search"
         app:actionViewClass="android.support.v7.widget.SearchView"
-        />
-
-
-
+    app:showAsAction="ifRoom"/>
 </menu>

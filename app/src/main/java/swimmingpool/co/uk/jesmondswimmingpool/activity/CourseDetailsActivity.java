@@ -3,6 +3,7 @@ package swimmingpool.co.uk.jesmondswimmingpool.activity;
 import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
+import android.support.v4.view.ViewCompat;
 import android.support.v7.widget.AppCompatTextView;
 import android.support.v7.widget.CardView;
 import android.support.v7.widget.LinearLayoutCompat;
@@ -38,7 +39,6 @@ import swimmingpool.co.uk.jesmondswimmingpool.http.HttpHelper;
 import swimmingpool.co.uk.jesmondswimmingpool.http.SimpleHttpCallBack;
 import swimmingpool.co.uk.jesmondswimmingpool.http.UrlConstant;
 import swimmingpool.co.uk.jesmondswimmingpool.utils.AppBus;
-import swimmingpool.co.uk.jesmondswimmingpool.utils.LogUtils;
 import swimmingpool.co.uk.jesmondswimmingpool.utils.UIUtils;
 import swimmingpool.co.uk.jesmondswimmingpool.view.TagAdapter;
 import swimmingpool.co.uk.jesmondswimmingpool.view.TagFlowLayout;
@@ -125,8 +125,11 @@ public class CourseDetailsActivity extends BaseActivity implements AdapterView.O
                         CardView inflate = (CardView) LayoutInflater.from(CourseDetailsActivity.this).inflate(R.layout.item_achievement, null);
                         TextView textView = inflate.findViewById(R.id.tv_ach);
                         ColorM colorM = randomColor();
-                        inflate.setBackgroundColor(colorM.color);
                         textView.setText(courseitem.getName());
+                        ViewCompat.setElevation(inflate,10);
+                        inflate.setCardBackgroundColor(colorM.color);
+                        inflate.setCardElevation(10);
+
                         return inflate;
                     }
 
@@ -180,7 +183,7 @@ public class CourseDetailsActivity extends BaseActivity implements AdapterView.O
             public boolean onSelection(MaterialDialog dialog, View itemView, int which, CharSequence text) {
                 if(which==-1)
                 {
-                    UIUtils.showToastSafe(CourseDetailsActivity.this,"please tick one option");
+                    UIUtils.showToastSafe(CourseDetailsActivity.this,"Please tick one option");
                     return false;
                 }
                 HttpHelper.getInstance().remove(UrlConstant.REMOVE_ITEM + courseitem.getId(), new HttpCallBack<CommonEntity<Object>>() {
@@ -205,7 +208,7 @@ public class CourseDetailsActivity extends BaseActivity implements AdapterView.O
                 dialog.dismiss();
                 return true;
             }
-        }).positiveText("YES").negativeText("CANCEL").title("option").show();
+        }).positiveText("YES").negativeText("CANCEL").title("Option").show();
 
 
     }
@@ -276,7 +279,6 @@ public class CourseDetailsActivity extends BaseActivity implements AdapterView.O
 
         ahievements.clear();
                 ahievements.addAll(editAchievementEvent.getItems());
-        LogUtils.i(ahievements.size()+" sssssssssssssssssss");
         tagAdapter.notifyDataChanged();
 
 

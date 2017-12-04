@@ -21,11 +21,19 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <android.support.v7.widget.AppCompatTextView
+        android:id="@+id/tv_id"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+
+        android:text="ID: 1"
+        app:layout_constraintEnd_toEndOf="@+id/tv_level"
+        app:layout_constraintTop_toTopOf="parent" />
+    <android.support.v7.widget.AppCompatTextView
         android:id="@+id/tv_level"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
 
-
+        android:visibility="gone"
         android:text="Level: 1"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent" />

@@ -22,9 +22,9 @@ import butterknife.Unbinder;
 import swimmingpool.co.uk.jesmondswimmingpool.R;
 import swimmingpool.co.uk.jesmondswimmingpool.activity.AddCourseActivity;
 import swimmingpool.co.uk.jesmondswimmingpool.activity.AddStudentActivity;
+import swimmingpool.co.uk.jesmondswimmingpool.activity.AllCourseActivity;
+import swimmingpool.co.uk.jesmondswimmingpool.activity.AllStudentActivity;
 import swimmingpool.co.uk.jesmondswimmingpool.activity.AttendanceListActivity;
-import swimmingpool.co.uk.jesmondswimmingpool.activity.DeleteCourseActivity;
-import swimmingpool.co.uk.jesmondswimmingpool.activity.EditStudentActivity;
 import swimmingpool.co.uk.jesmondswimmingpool.activity.LoginActivity;
 import swimmingpool.co.uk.jesmondswimmingpool.utils.SpUtils;
 import swimmingpool.co.uk.jesmondswimmingpool.utils.UserManager;
@@ -79,9 +79,10 @@ public class OperationFragment extends BaseFragment implements View.OnClickListe
         switch (v.getId()) {
             case R.id.ll_addcourse:
                 intent.setClass(getActivity(), AddCourseActivity.class);
+               startActivity(intent);
                 break;
             case R.id.ll_deleteCourse:
-                intent.setClass(getActivity(), DeleteCourseActivity.class);
+                intent.setClass(getActivity(), AllCourseActivity.class);
 //                intent.setClass(getActivity(),Main2Activity.class);
                 startActivity(intent);
                 break;
@@ -90,7 +91,7 @@ public class OperationFragment extends BaseFragment implements View.OnClickListe
                 startActivity(intent);
                 break;
             case R.id.ll_editStudent:
-                intent.setClass(getActivity(), EditStudentActivity.class);
+                intent.setClass(getActivity(), AllStudentActivity.class);
                 startActivity(intent);
                 break;
             case R.id.ll_attendance_record:

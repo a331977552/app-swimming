@@ -9,7 +9,6 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
-import android.widget.LinearLayout;
 
 import com.afollestad.materialdialogs.DialogAction;
 import com.afollestad.materialdialogs.MaterialDialog;
@@ -40,14 +39,12 @@ import swimmingpool.co.uk.jesmondswimmingpool.utils.UIUtils;
  * Created by cody on 2017/11/27.
  */
 
-public class CourseListActivity extends BaseActivity implements AdapterView.OnItemClickListener, View.OnClickListener {
+public class CourseChangeActivity extends BaseActivity implements AdapterView.OnItemClickListener, View.OnClickListener {
 
     @BindView(R.id.list)
     ListViewCompat list;
-    @BindView(R.id.login_progress)
-    LinearLayout loginProgress;
-    @BindView(R.id.login_retry)
-    LinearLayout login_retry;
+
+
     @BindView(R.id.swipeRefreshLayout)
     SwipeRefreshLayout swipeRefreshLayout;
     private List<Course> bean;
@@ -63,7 +60,6 @@ public class CourseListActivity extends BaseActivity implements AdapterView.OnIt
         setTitle("change");
         course = (StudentCourse) getIntent().getSerializableExtra("course");
         ButterKnife.bind(this);
-        login_retry.setOnClickListener(this);
         swipeRefreshLayout.setColorSchemeResources(R.color.colorAccent,R.color.colorPrimary,R.color.colorPrimaryDark);
 
         load();
@@ -92,25 +88,23 @@ public class CourseListActivity extends BaseActivity implements AdapterView.OnIt
         courseVo.setDay(new Date());
         courseVo.setIncludingFishished(show_finished);
         courseVo.setIncludingChose(false);
-        HttpHelper.getInstance().post(UrlConstant.GET_ALL_COURSE, courseVo, new HttpCallBack<CommonEntity<List<Course>>>() {
-            @Override
-            public void onSuccess(CommonEntity<List<Course>> o) {
-                login_retry.setVisibility(View.GONE);
-                bean = o.getBean();
-                list.setAdapter(new CourseListAdapter(CourseListActivity.this, bean));
-                list.setOnItemClickListener(CourseListActivity.this);
+        HttpHelper.getInstance().post(UrlConstant.GET_ALL_COURSE, courseVo, new HttpCallBack<CommonEntity<CourseVo>>() {
 
+
+            @Override
+            public void onSuccess(CommonEntity<CourseVo> courseVoCommonEntity) {
+                bean = courseVoCommonEntity.getBean().getCourseList();
+                list.setAdapter(new CourseListAdapter(CourseChangeActivity.this, bean));
+                list.setOnItemClickListener(CourseChangeActivity.this);
             }
 
             @Override
             public void onFailure(String message, int code) {
-                UIUtils.showToastSafe(CourseListActivity.this, message + code);
-                login_retry.setVisibility(View.VISIBLE);
+                UIUtils.showToastSafe(CourseChangeActivity.this, message + code);
             }
 
             @Override
             public void after() {
-                loginProgress.setVisibility(View.GONE);
                 swipeRefreshLayout.setRefreshing(false);
             }
         });
@@ -123,7 +117,7 @@ public class CourseListActivity extends BaseActivity implements AdapterView.OnIt
                 contentColorRes(R.color.black).title("reminder").positiveText("YES").negativeText("NO").onPositive(new MaterialDialog.SingleButtonCallback() {
             @Override
             public void onClick(@NonNull MaterialDialog dialog, @NonNull DialogAction which) {
-                processingDialog = DialogUtils.processingDialog(CourseListActivity.this);
+                processingDialog = DialogUtils.processingDialog(CourseChangeActivity.this);
                 dialog.dismiss();
                 processingDialog.show();
                 change((Course)dialog.getTag());
@@ -148,7 +142,7 @@ public class CourseListActivity extends BaseActivity implements AdapterView.OnIt
 
             @Override
             public void onSuccess(CommonEntity<CourseChoosing> courseChoosingCommonEntity) {
-                        UIUtils.showToastSafe(CourseListActivity.this,courseChoosingCommonEntity.getMsg());
+                        UIUtils.showToastSafe(CourseChangeActivity.this,courseChoosingCommonEntity.getMsg());
 
                         UIUtils.postDelayed(new Runnable() {
 
@@ -165,7 +159,8 @@ public class CourseListActivity extends BaseActivity implements AdapterView.OnIt
 
             @Override
             public void onFailure(String message, int code) {
-                UIUtils.showToastSafe(CourseListActivity.this,message+ code);
+                processingDialog.dismiss();
+                UIUtils.showToastSafe(CourseChangeActivity.this,message+ code);
             }
 
             @Override
@@ -177,8 +172,6 @@ public class CourseListActivity extends BaseActivity implements AdapterView.OnIt
 
     @Override
     public void onClick(View view) {
-        loginProgress.setVisibility(View.VISIBLE);
-        login_retry.setVisibility(View.GONE);
         load();
     }
 }

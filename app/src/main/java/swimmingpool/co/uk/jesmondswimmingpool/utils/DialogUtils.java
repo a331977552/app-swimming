@@ -58,4 +58,8 @@ public class DialogUtils {
             }
         });
     }
+    public static MaterialDialog showSingleChoiceDialog(Context context, String[] content, MaterialDialog.ListCallbackSingleChoice pos) {
+
+       return  new MaterialDialog.Builder(context).items(content).itemsCallbackSingleChoice(-1, pos).positiveText("YES").negativeText("CANCEL").title("Option").show();
+    }
 }

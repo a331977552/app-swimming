@@ -34,9 +34,9 @@ public final class HttpHelper {
 
     private HttpHelper() {
         okHttpClient = new OkHttpClient();
-        okHttpClient.setConnectTimeout(30, TimeUnit.SECONDS);
-        okHttpClient.setReadTimeout(60, TimeUnit.SECONDS);
-        okHttpClient.setWriteTimeout(60, TimeUnit.SECONDS);
+        okHttpClient.setConnectTimeout(10, TimeUnit.SECONDS);
+        okHttpClient.setReadTimeout(10, TimeUnit.SECONDS);
+        okHttpClient.setWriteTimeout(10, TimeUnit.SECONDS);
         handler = new Handler();
         gson = new GsonBuilder().setDateFormat("yyyy-MM-dd").create();
     }
