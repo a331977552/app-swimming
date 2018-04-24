@@ -154,6 +154,7 @@ public class CourseDetailsActivity extends BaseActivity implements AdapterView.O
             public void after() {
             }
         });
+
         HttpHelper.getInstance().get(UrlConstant.GET_ALL_STUDENT_BYCOURSE + course.getId(), new SimpleHttpCallBack<CommonEntity<List<StudentVo>>>() {
 
 

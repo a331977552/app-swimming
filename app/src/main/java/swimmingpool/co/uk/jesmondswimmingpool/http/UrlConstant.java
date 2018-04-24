@@ -7,7 +7,7 @@ package swimmingpool.co.uk.jesmondswimmingpool.http;
 public interface UrlConstant {
 //    String BASE_URL="http://10.0.2.2:8080/swimmingpool/api/";
 //    String BASE_URL="http://192.168.0.24:8080/swimmingpool/api/";
-    String BASE_URL=" http://52.88.68.208:8080/swimmingpool/api/";
+    String BASE_URL="http://34.215.32.143/swimmingpool/api/";
 
     String LOGIN=BASE_URL+"login";
 
@@ -41,4 +41,5 @@ public interface UrlConstant {
     String REMOVE_ITEM = BASE_URL + "course/item/";
     String POST_ERROR = BASE_URL + "error";
     String REMOVE_FINISHSTATUS = BASE_URL + "student/finishcourse";
+    String UNSIGN_IN = BASE_URL + "student/unsignin/";
 }

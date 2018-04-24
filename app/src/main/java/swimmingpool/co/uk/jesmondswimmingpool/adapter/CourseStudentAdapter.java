@@ -1,10 +1,14 @@
 package swimmingpool.co.uk.jesmondswimmingpool.adapter;
 
 import android.app.Activity;
+import android.graphics.Color;
+import android.support.annotation.NonNull;
 import android.support.v7.widget.AppCompatTextView;
 import android.view.View;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 
+import com.afollestad.materialdialogs.DialogAction;
 import com.afollestad.materialdialogs.MaterialDialog;
 
 import java.util.ArrayList;
@@ -23,7 +27,6 @@ import swimmingpool.co.uk.jesmondswimmingpool.http.HttpHelper;
 import swimmingpool.co.uk.jesmondswimmingpool.http.UrlConstant;
 import swimmingpool.co.uk.jesmondswimmingpool.utils.DialogUtils;
 import swimmingpool.co.uk.jesmondswimmingpool.utils.UIUtils;
-import swimmingpool.co.uk.jesmondswimmingpool.view.LoadingButton;
 
 /**
  * Created by cody on 2017/11/15.
@@ -65,8 +68,13 @@ public class CourseStudentAdapter extends DefaultAdpater<StudentVo> {
         AppCompatTextView tvPaid;
         @BindView(R.id.tv_parentPhoneNumber)
         AppCompatTextView tvParentPhoneNumber;
-        @BindView(R.id.submitbutton)
-        LoadingButton submitbutton;
+
+        @BindView(R.id.pb)
+        ProgressBar pb;
+        @BindView(R.id.tv_attend)
+        TextView tv_attend;
+
+
         @BindView(R.id.tv_achievement)
         TextView tv_achievement;
 
@@ -84,19 +92,21 @@ public class CourseStudentAdapter extends DefaultAdpater<StudentVo> {
 
 
         @Override
-        protected void initData(StudentVo student) {
+        protected void initData(final StudentVo student) {
 
             if (student.getAttendance() != null) {
-
-                submitbutton.startSubmitAnim();
-                submitbutton.setProgress(100);
-                submitbutton.doResult(true);
-
+                tv_attend.setText("attended");
+                tv_attend.setTextColor(Color.RED);
             } else {
-                submitbutton.reset();
-                submitbutton.setOnClickListener(new View.OnClickListener() {
-                    @Override
-                    public void onClick(View view) {
+                tv_attend.setText("attended");
+            }
+
+            tv_attend.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    if (getData().getAttendance() == null) {
+                        pb.setVisibility(View.VISIBLE);
+                        tv_attend.setVisibility(View.INVISIBLE);
                         Attendance attendance = new Attendance();
                         attendance.setStudentid(getData().getStudent().getId());
                         attendance.setCourseid(courseId);
@@ -106,29 +116,60 @@ public class CourseStudentAdapter extends DefaultAdpater<StudentVo> {
 
                             @Override
                             public void onSuccess(CommonEntity<Attendance> attendanceCommonEntity) {
-                                submitbutton.setProgress(100);
-                                submitbutton.doResult(true);
-                                submitbutton.setOnClickListener(null);
+                                tv_attend.setText("Attended");
+                                tv_attend.setTextColor(Color.RED);
                                 getData().setAttendance(attendanceCommonEntity.getBean());
                             }
 
                             @Override
                             public void onFailure(String message, int code) {
-                                UIUtils.showToastSafe(getActivity(),message+code);
-                                submitbutton.setProgress(0);
-                                submitbutton.doResult(false);
-                                submitbutton.reset();
+                                UIUtils.showToastSafe(getActivity(), message + code);
                             }
 
                             @Override
                             public void after() {
-
+                                tv_attend.setVisibility(View.VISIBLE);
+                                pb.setVisibility(View.INVISIBLE);
                             }
                         });
-                    }
-                });
+                    }else{
 
-            }
+                        DialogUtils.showDialog(getActivity(), "are you sure you want to cancel Sign in?", new MaterialDialog.SingleButtonCallback() {
+                            @Override
+                            public void onClick(@NonNull MaterialDialog dialog, @NonNull DialogAction which) {
+                                pb.setVisibility(View.VISIBLE);
+                                tv_attend.setVisibility(View.INVISIBLE);
+                                HttpHelper.getInstance().post(UrlConstant.UNSIGN_IN, student.getAttendance(), new HttpCallBack<CommonEntity<Attendance>>() {
+                                    @Override
+                                    public void onSuccess(CommonEntity<Attendance> attendanceCommonEntity) {
+                                        getData().setAttendance(null);
+                                        tv_attend.setText("attend");
+                                        tv_attend.setTextColor(getActivity().getResources().getColor(R.color.colorPrimary));
+                                    }
+
+                                    @Override
+                                    public void onFailure(String message, int code) {
+                                        UIUtils.showToastSafe(getActivity(), message + code);
+                                    }
+
+                                    @Override
+                                    public void after() {
+                                        pb.setVisibility(View.INVISIBLE);
+                                        tv_attend.setVisibility(View.VISIBLE);
+                                    }
+                                });
+
+                            }
+                        }).show();
+
+
+
+                    }
+
+                }
+            });
+
+
             tvName.setText("Name: " + student.getStudent().getName());
             tvLevel.setText("ID: " + student.getStudent().getId());
             tvPaid.setText("Paid: " + (student.getStudent().getPaid() == null ? "unknow" : student.getStudent().getPaid() == 1 ? "YES" : "NO"));

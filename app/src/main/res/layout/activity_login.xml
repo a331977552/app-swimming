@@ -67,24 +67,14 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:lineSpacingExtra="5dip"
-                android:text="JSMOND LEISURE"
+                android:text="JESMOND LEISURE"
                 android:textAlignment="center"
                 android:textAllCaps="true"
                 android:textColor="@color/colorPrimary"
                 android:textSize="25dp"
+                android:layout_marginBottom="20dip"
                 android:textStyle="bold|italic" />
-            <TextView
 
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:lineSpacingExtra="5dip"
-                android:text="JMEMBERSHIP Management"
-                android:textAlignment="center"
-                android:textAllCaps="true"
-                android:textColor="@color/colorPrimary"
-                android:textSize="18dp"
-                android:layout_marginBottom="10dip"
-                android:textStyle="bold|italic" />
 
             <android.support.design.widget.TextInputLayout
                 android:layout_width="match_parent"

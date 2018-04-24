@@ -77,6 +77,7 @@ public class AttendanceListActivity extends BaseActivity implements View.OnClick
 
                 for (Attendance a : bean) {
                     Date recordDate = a.getRecordDate();
+                    
                     cv.setDateSelected(recordDate, true);
 
                 }

@@ -53,8 +53,7 @@ public class StudentDetailActivity extends BaseActivity {
     AppCompatTextView tvMedical;
     @BindView(R.id.tv_note)
     AppCompatTextView tvNote;
-    @BindView(R.id.tv_registration)
-    AppCompatTextView tvRegistration;
+
     @BindView(R.id.tv_level)
     AppCompatTextView tvLevel;
     @BindView(R.id.tv_paid)

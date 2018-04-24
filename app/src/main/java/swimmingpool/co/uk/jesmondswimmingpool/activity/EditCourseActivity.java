@@ -97,6 +97,10 @@ public class EditCourseActivity extends BaseActivity {
         try {
             Date starD = simpleDateFormat.parse(start.toString());
             Date endD = simpleDateFormat.parse(end.toString());
+            if(starD.getTime()>endD.getTime()){
+                UIUtils.showToastSafe(this,"date incorrect");
+                return ;
+            }
             course.setEndDate(endD);
             course.setStartDate(starD);
         } catch (ParseException e) {

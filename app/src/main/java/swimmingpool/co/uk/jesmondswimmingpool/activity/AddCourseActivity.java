@@ -130,8 +130,14 @@ public class AddCourseActivity extends BaseActivity {
         course.setTutorname(tutor);
         course.setName(name);
         try {
-            course.setStartDate(simpleDateFormat.parse(tvStartText.toString()));
-            course.setEndDate(simpleDateFormat.parse(text.toString()));
+            Date start = simpleDateFormat.parse(tvStartText.toString());
+            Date end = simpleDateFormat.parse(text.toString());
+            if(start.getTime()>end.getTime()){
+                UIUtils.showToastSafe(this,"date incorrect");
+                return ;
+            }
+            course.setStartDate(start);
+            course.setEndDate(end);
         } catch (ParseException e) {
             e.printStackTrace();
         }

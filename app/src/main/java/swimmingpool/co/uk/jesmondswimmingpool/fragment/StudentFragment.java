@@ -104,6 +104,7 @@ public class StudentFragment extends BaseFragment implements AdapterView.OnItemC
         HttpHelper.getInstance().post(UrlConstant.GET_ALL_STUDENT, tutorVo, new HttpCallBack<CommonEntity<List<Student>>>() {
             @Override
             public void onSuccess(CommonEntity<List<Student>> listCommonEntity) {
+                students.clear();
                 finalResult = listCommonEntity.getBean();
                 students.addAll(finalResult);
                 if (studentAdapter == null) {
